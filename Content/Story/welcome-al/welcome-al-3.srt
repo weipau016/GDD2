@@ -1,0 +1,4 @@
+1
+00:00:00,500 --> 00:00:03,899
+Just use your hand and press one of the buttons in front of you.
+
