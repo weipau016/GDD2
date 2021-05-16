@@ -14,17 +14,22 @@ class AStoryManager;
 class GDD2_API BaseState
 {
 protected:
-	BaseState();
+	AStoryManager* m_story_manager;
+
+	friend class AStoryManager;
+
+
+protected:
+	BaseState(AStoryManager* story_manager);
 	virtual ~BaseState();
 
 	virtual void OnEnter();
 	virtual void OnExit();
 	virtual void Tick(float DeltaTime);
 
+	// Will exit current state and change to state_id state instead
 	void Exit(std::string state_id);
 
-protected:
-	AStoryManager* m_story_manager;
-
-	friend class AStoryManager;
+	// Will exit current state and change to last state instead
+	void Exit();
 };
