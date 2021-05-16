@@ -99,10 +99,7 @@ bp_cdo = unreal.get_default_object(bp_gc)
 scenes = bp_cdo.get_editor_property("scenes")
 
 # clear scenes dictionary
-scenes.clear()
-scene_seq_class = unreal.EditorAssetLibrary.load_blueprint_class('/Game/Story/BP_Sequence.BP_Sequence_C')
-bp_scene_seq = unreal.EditorLevelLibrary.spawn_actor_from_class(scene_seq_class, unreal.Vector(0,0,0))
-scenes.setdefault("welcome_al", bp_scene_seq)
+
 
 
 
