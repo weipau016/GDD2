@@ -1,0 +1,21 @@
+1
+00:00:00,600 --> 00:00:01,899
+There you go!
+
+2
+00:00:02,200 --> 00:00:07,199
+Now you can reply, although we are somewhat limited in the range of
+possible answer ...
+
+3
+00:00:08,500 --> 00:00:09,199
+Go on,
+
+4
+00:00:09,700 --> 00:00:13,199
+Do you hold some unfounded bias against AI?
+
+5
+00:00:13,800 --> 00:00:15,399
+You can be honest with me.
+

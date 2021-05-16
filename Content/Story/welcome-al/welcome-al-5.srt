@@ -1,0 +1,8 @@
+1
+00:00:00,500 --> 00:00:02,599
+In case you haven't seen them yet,
+
+2
+00:00:03,000 --> 00:00:07,799
+the buttons are located on top of the console right in the middle.
+
