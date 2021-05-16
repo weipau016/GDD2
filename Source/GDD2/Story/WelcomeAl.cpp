@@ -3,7 +3,7 @@
 
 #include "WelcomeAl.h"
 
-WelcomeAl::WelcomeAl() : BaseState()
+WelcomeAl::WelcomeAl(AStoryManager* story_manager) : BaseState(story_manager)
 {
 }
 

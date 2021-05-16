@@ -3,7 +3,11 @@
 #include "BaseState.h"
 #include "../StoryManager.h"
 
-BaseState::BaseState()
+BaseState::BaseState(AStoryManager* story_manager) : m_story_manager(story_manager)
+{
+}
+
+BaseState::~BaseState()
 {
 }
 
@@ -24,6 +28,8 @@ void BaseState::Exit(std::string state_id)
 	m_story_manager->ChangeToState(state_id);
 }
 
-BaseState::~BaseState()
+void BaseState::Exit()
 {
+	m_story_manager->ChangeToLastState();
 }
+

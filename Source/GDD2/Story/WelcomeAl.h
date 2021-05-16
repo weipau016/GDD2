@@ -12,7 +12,7 @@
 class GDD2_API WelcomeAl : public BaseState
 {
 public:
-	WelcomeAl();
+	WelcomeAl(AStoryManager* story_manager);
 	virtual ~WelcomeAl();
 
 protected:

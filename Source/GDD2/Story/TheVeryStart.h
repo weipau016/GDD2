@@ -12,7 +12,7 @@
 class GDD2_API TheVeryStart : public BaseState
 {
 public:
-	TheVeryStart();
+	TheVeryStart(AStoryManager* story_manager);
 	virtual ~TheVeryStart();
 
 protected:

@@ -3,6 +3,7 @@
 #pragma once
 
 #include <map>
+#include <stack>
 #include <string>
 
 #include "Story/BaseState.h"
@@ -25,20 +26,24 @@ protected:
 
 	friend class BaseState;
 
+private:
+	std::stack<std::string> m_history;
 
 public:
 	// Sets default values for this actor's properties
 	AStoryManager();
 
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	// change current state to indicated
 	// will be called by the state itself in its Exit() function
 	void ChangeToState(std::string state_id);
 
-public:
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
+	// change to last state in history
+	void ChangeToLastState();
 };

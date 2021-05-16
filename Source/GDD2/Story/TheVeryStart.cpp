@@ -2,7 +2,7 @@
 
 #include "TheVeryStart.h"
 
-TheVeryStart::TheVeryStart() : BaseState()
+TheVeryStart::TheVeryStart(AStoryManager* story_manager) : BaseState(story_manager)
 {
 }
 
