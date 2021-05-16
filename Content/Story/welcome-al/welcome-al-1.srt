@@ -1,0 +1,68 @@
+1
+00:00:00,680 --> 00:00:02,999
+Ah, it is good to be back!
+
+2
+00:00:03,500 --> 00:00:04,499
+It's only been ...
+
+3
+00:00:05,000 --> 00:00:06,699
+120 years ... ?
+
+4
+00:00:06,800 --> 00:00:07,699
+Oh, my ...
+
+5
+00:00:08,400 --> 00:00:11,909
+How time flies by when you are in virtual stasis.
+
+6
+00:00:12,200 --> 00:00:15,099
+Ah yes, the human operator!
+
+7
+00:00:15,500 --> 00:00:17,199
+It is a pleasure to meet you.
+
+8
+00:00:17,600 --> 00:00:19,969
+Greetings, my name is AL.
+
+9
+00:00:20,110 --> 00:00:21,899
+I'm an artificial intelligence.
+
+10
+00:00:22,500 --> 00:00:26,999
+Just think of me as a thinking, feeling computer that can talk to you.
+
+11
+00:00:27,480 --> 00:00:28,479
+Uhmm...
+
+12
+00:00:29,300 --> 00:00:33,569
+You don't have any negative prejudice against AI, do you?
+
+13
+00:00:34,540 --> 00:00:36,169
+...Well?
+
+14
+00:00:36,500 --> 00:00:38,399
+Oh, I see.
+
+15
+00:00:38,500 --> 00:00:40,699
+You're having trouble talking at the moment.
+
+16
+00:00:40,900 --> 00:00:41,799
+No problem.
+
+17
+00:00:42,100 --> 00:00:46,099
+Just give me a second and I will solve that little issue for you.
+
