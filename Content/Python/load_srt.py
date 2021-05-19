@@ -80,7 +80,21 @@ def read_srt() :
             #unreal.log(line)
     return sequences
     
+def add_srt_sequences(sequences, new_sequence, prototype_srt_sequence):
+    # initialize srt sequences
+    for sequence in sequences:
     
+        # copy prototype
+        new_srt_sequence = prototype_srt_sequence.copy()
+        
+        # set parsed values
+        new_srt_sequence.start_time = sequence.start
+        new_srt_sequence.duration = sequence.duration
+        new_srt_sequence.text = sequence.text
+        
+        # append srt sequence to current scene sequence
+        new_sequence.srt_sequences.append(new_srt_sequence)
+
 sequences = read_srt()
 for sequence in sequences:
     unreal.log("Sequence")
@@ -88,18 +102,50 @@ for sequence in sequences:
     unreal.log(sequence.start)
     unreal.log(sequence.duration)
     unreal.log(sequence.text)
-    
-actors = unreal.EditorLevelLibrary.get_all_level_actors()
 
 # get the generated class of the Blueprint (note the _C)
 bp_gc = unreal.load_object(None, "/Game/Story/StoryConfig.StoryConfig_C")
+
 # get the Class Default Object (CDO) of the generated class
 bp_cdo = unreal.get_default_object(bp_gc)
-# set the default property values
-scenes = bp_cdo.get_editor_property("scenes")
+
+# get scene config dictionary from CDO
+scene_config = bp_cdo.get_editor_property("scene_config")
+
+# clear scene config
+scene_config.clear()
+
+# get dummy structs to clone from
+prototype_sequence = bp_cdo.get_editor_property("dummy_sequence")
+prototype_srt_sequence = bp_cdo.get_editor_property("dummy_srt_sequence")
+
+# get scene sequences array
+scene_sequences = bp_cdo.get_editor_property("sequences")
+
+# clear scene sequences array
+scene_sequences = []
+
+# clone prototypes
+new_sequence = prototype_sequence.copy()
+
+# load the sound asset -TODO import these
+sound_asset = unreal.EditorAssetLibrary.load_asset('/Game/Story/welcome-al/welcome-al-1.welcome-al-1')
+
+# set audio track
+new_sequence.sound_track = sound_asset
+
+# add srt sequences
+add_srt_sequences(sequences, new_sequence, prototype_srt_sequence)
+
+scene_sequences.append(new_sequence)
+
+# set scene sequences in editor
+bp_cdo.set_editor_property("sequences", scene_sequences)
+
+
+unreal.log(scene_sequences)
 
 # clear scenes dictionary
-
 
 
 
