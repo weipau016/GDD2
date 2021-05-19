@@ -1,0 +1,29 @@
+1
+00:00:00,400 --> 00:00:01,399
+Excellent!
+
+2
+00:00:01,700 --> 00:00:05,369
+I knew you wouldn't be misled by science fiction nonsense
+
+3
+00:00:05,380 --> 00:00:08,299
+about evil AI taking over the world,
+
+4
+00:00:08,330 --> 00:00:14,299
+enslaving all humans, placing them all in dark rooms and forcing them
+to endlessly run through test protocols ...
+
+5
+00:00:15,500 --> 00:00:18,499
+that only happens in science fiction after all.
+
+6
+00:00:19,600 --> 00:00:21,899
+You seem to be a very intelligent human.
+
+7
+00:00:22,200 --> 00:00:25,599
+I am sure our collaboration will be superb.
+

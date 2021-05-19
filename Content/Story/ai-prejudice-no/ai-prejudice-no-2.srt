@@ -1,0 +1,8 @@
+1
+00:00:00,400 --> 00:00:04,799
+Thank you for satisfying my curiosity by answering my question.
+
+2
+00:00:05,400 --> 00:00:08,499
+Let us now proceed with the operator protocol.
+
