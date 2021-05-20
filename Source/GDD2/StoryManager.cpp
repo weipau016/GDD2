@@ -49,3 +49,7 @@ void AStoryManager::Tick(float DeltaTime)
 	m_current_state->Tick(DeltaTime);
 }
 
+void AStoryManager::ButtonPressed(std::string& name)
+{
+}
+
