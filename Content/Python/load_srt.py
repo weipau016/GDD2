@@ -40,7 +40,7 @@ def read_srt(path) :
                 if line == "\n":
                     read_index = True
                     read_text = False
-                    sequences.append(Sequence(current_index, current_start, current_duration, text))
+                    sequences.append(Sequence(current_index, current_start + 0.1, current_duration, text))
                     text = ''
                     continue
                 
@@ -146,6 +146,9 @@ prototype_srt_sequence = bp_cdo.get_editor_property("dummy_srt_sequence")
 # get scene sequences array
 scene_sequences = bp_cdo.get_editor_property("sequences")
 
+# clear scene sequences
+scene_sequences = []
+
 for item in directory_contents:
     if isdir(join(story_directory, item)):
     
@@ -156,10 +159,27 @@ for item in directory_contents:
         srt_files = [f for f in listdir(current_scene) if isfile(join(current_scene, f)) and f[-3:]=='srt']
         unreal.log(srt_files)
         
+        scene_config.setdefault(item, len(scene_sequences))
+        
         # parse srt files for current scene
         for srt_file in srt_files:
+        
+            new_sequence = prototype_sequence.copy()
+        
             # read srt file
             sequences = read_srt(item + '/' + srt_file)
+            
+            sound_name = srt_file.split('.')[0]
+            unreal.log(sound_name)
+            
+            # load the sound asset
+            sound_asset = unreal.EditorAssetLibrary.load_asset('/Game/Story/' + item + '/' + sound_name + '.' + sound_name)
+            
+            # set audio track
+            new_sequence.sound_track = sound_asset
+            
+            # add srt sequences
+            add_srt_sequences(sequences, new_sequence, prototype_srt_sequence)
             '''
             for sequence in sequences:
                 unreal.log("Sequence")
@@ -168,19 +188,11 @@ for item in directory_contents:
                 unreal.log(sequence.duration)
                 unreal.log(sequence.text)
             '''
+            scene_sequences.append(new_sequence)
 
 
 
-# load the sound asset -TODO import these
-sound_asset = unreal.EditorAssetLibrary.load_asset('/Game/Story/welcome-al/welcome-al-1.welcome-al-1')
 
-# set audio track
-new_sequence.sound_track = sound_asset
-
-# add srt sequences
-add_srt_sequences(sequences, new_sequence, prototype_srt_sequence)
-
-scene_sequences.append(new_sequence)
 
 # set scene sequences in editor
 bp_cdo.set_editor_property("sequences", scene_sequences)
