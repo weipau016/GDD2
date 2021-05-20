@@ -10,6 +10,14 @@ AStoryManager::AStoryManager()
 	PrimaryActorTick.bCanEverTick = true;
 	m_states.insert({ "THE_VERY_START",		new TheVeryStart(this) });
 	m_states.insert({ "WELCOME_AL",			new WelcomeAl(this) });
+
+	ConstructorHelpers::FObjectFinder<UBlueprint> ui(TEXT("Blueprint'/Game/WorldSpaceUI/VR_Widget_World.VR_Widget_World'"));
+	{
+		if (ui.Object != NULL)
+		{
+			UE_LOG(LogTemp, Display, TEXT("AStoryManager: FOUND UI REFERENCE!!!!"));
+		}
+	}
 }
 
 // Called when the game starts or when spawned

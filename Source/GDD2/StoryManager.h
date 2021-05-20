@@ -19,10 +19,16 @@ class GDD2_API AStoryManager : public AActor
 {
 	GENERATED_BODY()
 
+public:
+	UFUNCTION(BlueprintCallable, Category = "StoryEvents")
+	FString getUiScene() { return m_ui_scene; }
+
 protected:
 	BaseState* m_current_state;
 
 	std::map<std::string, BaseState*> m_states;
+
+	FString m_ui_scene = "the-very-start";
 
 	friend class BaseState;
 
