@@ -7,9 +7,9 @@
 #include <stdexcept>
 
 
-void UButtonManager::RegisterStoryManager(AStoryManager& manager)
+void UButtonManager::RegisterStoryManager(AStoryManager* manager)
 {
-	_storyManager = &manager;
+	_storyManager = manager;
 }
 
 void UButtonManager::RegisterButton(AConsoleButton* button)

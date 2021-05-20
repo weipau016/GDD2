@@ -2,6 +2,7 @@
 
 
 #include "StoryManager.h"
+#include "ButtonManager.h"
 
 // Sets default values
 AStoryManager::AStoryManager()
@@ -49,7 +50,15 @@ void AStoryManager::Tick(float DeltaTime)
 	m_current_state->Tick(DeltaTime);
 }
 
+void AStoryManager::RegisterButtonManager(UButtonManager* button_manager)
+{
+	m_button_manager = button_manager;
+	UE_LOG(LogTemp, Display, TEXT("WE FOUND THE BUTTON MANAGER HURRAY!"));
+}
+
 void AStoryManager::ButtonPressed(std::string& name)
 {
+	FString text(name.c_str());
+	UE_LOG(LogTemp, Display, TEXT("ButtonPressed: %s"), name.c_str());
 }
 

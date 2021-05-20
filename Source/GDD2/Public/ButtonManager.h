@@ -28,7 +28,8 @@ private:
 
 public:
 
-	void RegisterStoryManager(AStoryManager& manager);
+	UFUNCTION(BlueprintCallable)
+	void RegisterStoryManager(AStoryManager* manager);
 
 	UFUNCTION(BlueprintCallable)
 	void RegisterButton(AConsoleButton* button);

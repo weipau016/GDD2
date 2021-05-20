@@ -14,6 +14,8 @@
 #include "GameFramework/Actor.h"
 #include "StoryManager.generated.h"
 
+class UButtonManager;
+
 UCLASS()
 class GDD2_API AStoryManager : public AActor
 {
@@ -23,6 +25,8 @@ protected:
 	BaseState* m_current_state;
 
 	std::map<std::string, BaseState*> m_states;
+	
+	UButtonManager* m_button_manager;
 
 	friend class BaseState;
 
@@ -35,6 +39,9 @@ public:
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	UFUNCTION(BlueprintCallable)
+	void RegisterButtonManager(UButtonManager* button_manager);
 
 	void ButtonPressed(std::string& name);
 
