@@ -36,7 +36,7 @@ void UButtonManager::ButtonPressed(const FString& name)
 		throw std::invalid_argument(std::string("Unknown button name '") + localName + "'");
 
 	if (_storyManager)
-		_storyManager->ButtonPressed(localName);
+		_storyManager->ButtonPressed(name);
 	else
 		UE_LOG(LogTemp, Warning, TEXT("Button '%s' pressed but no story manager is registered"), *name);
 }

@@ -15,10 +15,10 @@ class GDD2_API AConsoleButton : public AActor
 	GENERATED_BODY()
 	
 protected:
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Properties")
 	bool _isActive;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Properties")
 	FString _name;
 
 public:	

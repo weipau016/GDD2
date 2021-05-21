@@ -43,7 +43,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void RegisterButtonManager(UButtonManager* button_manager);
 
-	void ButtonPressed(std::string& name);
+	void ButtonPressed(const FString& name);
 
 protected:
 	// Called when the game starts or when spawned

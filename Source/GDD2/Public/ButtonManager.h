@@ -38,5 +38,6 @@ public:
 
 	bool IsButtonActive(const std::string& name) const;
 
+	UFUNCTION(BlueprintCallable)
 	void ButtonPressed(const FString& name);
 };

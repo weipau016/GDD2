@@ -56,9 +56,8 @@ void AStoryManager::RegisterButtonManager(UButtonManager* button_manager)
 	UE_LOG(LogTemp, Display, TEXT("WE FOUND THE BUTTON MANAGER HURRAY!"));
 }
 
-void AStoryManager::ButtonPressed(std::string& name)
+void AStoryManager::ButtonPressed(const FString& name)
 {
-	FString text(name.c_str());
-	UE_LOG(LogTemp, Display, TEXT("ButtonPressed: %s"), name.c_str());
+	UE_LOG(LogTemp, Display, TEXT("ButtonPressed: %s"), *name);
 }
 
