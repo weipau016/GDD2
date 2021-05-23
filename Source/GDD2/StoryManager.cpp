@@ -9,25 +9,18 @@ AStoryManager::AStoryManager()
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-	m_states.insert({ "THE_VERY_START",		new TheVeryStart(this) });
-	m_states.insert({ "WELCOME_AL",			new WelcomeAl(this) });
+	m_states.insert({ "the-very-start",		new TheVeryStart(this, "the-very-start") });
+	m_states.insert({ "welcome-al",			new WelcomeAl(this, "welcome-al") });
 
-	ConstructorHelpers::FObjectFinder<UBlueprint> ui(TEXT("Blueprint'/Game/WorldSpaceUI/VR_Widget_World.VR_Widget_World'"));
-	{
-		if (ui.Object != NULL)
-		{
-			UE_LOG(LogTemp, Display, TEXT("AStoryManager: FOUND UI REFERENCE!!!!"));
-		}
-	}
+	std::string starting_state_id = "the-very-start";
+	m_current_state = m_states[starting_state_id];
+	m_history.push(starting_state_id);
 }
 
 // Called when the game starts or when spawned
 void AStoryManager::BeginPlay()
 {
 	Super::BeginPlay();
-	std::string starting_state_id = "THE_VERY_START";
-	m_current_state = m_states[starting_state_id];
-	m_history.push(starting_state_id);
 	m_current_state->OnEnter();
 }
 
@@ -56,6 +49,11 @@ void AStoryManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	m_current_state->Tick(DeltaTime);
+}
+
+void AStoryManager::SequenceFinished() 
+{
+	m_current_state->OnSequenceFinished();
 }
 
 void AStoryManager::RegisterButtonManager(UButtonManager* button_manager)

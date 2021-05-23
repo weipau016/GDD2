@@ -12,9 +12,13 @@
 class GDD2_API TheVeryStart : public BaseState
 {
 public:
-	TheVeryStart(AStoryManager* story_manager);
+	TheVeryStart(AStoryManager* story_manager, FString scene_name);
 	virtual ~TheVeryStart();
+
+private:
+	typedef BaseState Super;
 
 protected:
 	virtual void OnEnter();
+	virtual void Tick(float DeltaTime);
 };

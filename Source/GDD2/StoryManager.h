@@ -23,7 +23,18 @@ class GDD2_API AStoryManager : public AActor
 
 public:
 	UFUNCTION(BlueprintCallable, Category = "StoryEvents")
-	FString getUiScene() { return m_ui_scene; }
+	FString GetScene() { return m_current_state->m_scene_name; }
+
+	UFUNCTION(BlueprintCallable, Category = "StoryEvents")
+	int GetSequence() { return m_current_state->m_sequence_number; }
+
+	UFUNCTION(BlueprintCallable, Category = "StoryEvents")
+	void SequenceFinished();
+
+	UFUNCTION(BlueprintCallable)
+	void RegisterButtonManager(UButtonManager* button_manager);
+
+	void ButtonPressed(const FString& name);
 
 protected:
 	BaseState* m_current_state;
@@ -31,8 +42,6 @@ protected:
 	std::map<std::string, BaseState*> m_states;
 	
 	UButtonManager* m_button_manager;
-
-	FString m_ui_scene = "the-very-start";
 
 	friend class BaseState;
 
@@ -45,11 +54,6 @@ public:
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
-	UFUNCTION(BlueprintCallable)
-	void RegisterButtonManager(UButtonManager* button_manager);
-
-	void ButtonPressed(const FString& name);
 
 protected:
 	// Called when the game starts or when spawned
