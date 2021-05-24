@@ -7,8 +7,6 @@
 #include <string>
 
 #include "Story/BaseState.h"
-#include "Story/TheVeryStart.h"
-#include "Story/WelcomeAl.h"
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"

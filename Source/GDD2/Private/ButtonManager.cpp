@@ -21,6 +21,11 @@ void UButtonManager::RegisterButton(AConsoleButton* button)
 
 void UButtonManager::SetButtonState(const std::string& name, bool active)
 {
+	if (_buttons.find(name) == _buttons.end()) {
+		FString nameString(name.c_str());
+		UE_LOG(LogTemp, Warning, TEXT("No button '%s' has been registered"), *nameString);
+		return;
+	}
 	_buttons.at(name)->SetActiveState(active);
 }
 

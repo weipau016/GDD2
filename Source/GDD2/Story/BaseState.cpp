@@ -2,6 +2,7 @@
 
 #include "BaseState.h"
 #include "../StoryManager.h"
+#include "ButtonManager.h"
 
 
 BaseState::BaseState(AStoryManager* story_manager, FString scene_name) : 
@@ -15,6 +16,7 @@ BaseState::~BaseState()
 
 void BaseState::OnEnter()
 {
+	UE_LOG(LogTemp, Display, TEXT("Entered State: %s"), *m_scene_name);
 }
 
 void BaseState::OnExit()
@@ -44,6 +46,11 @@ float BaseState::SecondsSinceSequenceFinished()
 {
 	return m_time_sequence_finished > 0.0f ?
 		m_story_manager->GetGameTimeSinceCreation() - m_time_sequence_finished : 0.0f;
+}
+
+void BaseState::SetButtonState(const std::string& name, bool active)
+{
+	m_story_manager->m_button_manager->SetButtonState(name, active);
 }
 
 void BaseState::Exit(std::string state_id)

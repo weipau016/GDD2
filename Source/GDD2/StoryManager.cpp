@@ -4,13 +4,23 @@
 #include "StoryManager.h"
 #include "ButtonManager.h"
 
+#include "Story/BaseState.h"
+#include "Story/TheVeryStart.h"
+#include "Story/WelcomeAl.h"
+#include "Story/AiPrejudiceYes.h"
+#include "Story/AiPrejudiceNo.h"
+#include "Story/AiPrejudiceInaction.h"
+
 // Sets default values
 AStoryManager::AStoryManager()
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-	m_states.insert({ "the-very-start",		new TheVeryStart(this, "the-very-start") });
-	m_states.insert({ "welcome-al",			new WelcomeAl(this, "welcome-al") });
+	m_states.insert({ "the-very-start",			new TheVeryStart(this, "the-very-start") });
+	m_states.insert({ "welcome-al",				new WelcomeAl(this, "welcome-al") });
+	m_states.insert({ "ai-prejudice-yes",		new AiPrejudiceYes(this, "ai-prejudice-yes") });
+	m_states.insert({ "ai-prejudice-no",		new AiPrejudiceNo(this, "ai-prejudice-no") });
+	m_states.insert({ "ai-prejudice-inaction",	new AiPrejudiceInaction(this, "ai-prejudice-inaction") });
 
 	std::string starting_state_id = "the-very-start";
 	m_current_state = m_states[starting_state_id];

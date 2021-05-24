@@ -13,7 +13,6 @@ TheVeryStart::~TheVeryStart()
 void TheVeryStart::OnEnter()
 {
 	Super::OnEnter();
-	UE_LOG(LogTemp, Display, TEXT("TheVeryStart: Entered... Starting Scene"));
 	StartSequence(1);
 	// TODO: turn on light (should be dimmed at start)
 	// TODO: enable startup sounds and light effects

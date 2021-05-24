@@ -2,6 +2,7 @@
 
 
 #include "WelcomeAl.h"
+#include "../StoryManager.h"
 
 WelcomeAl::WelcomeAl(AStoryManager* story_manager, FString scene_name) : BaseState(story_manager, scene_name)
 {
@@ -14,14 +15,14 @@ WelcomeAl::~WelcomeAl()
 void WelcomeAl::OnEnter()
 {
 	Super::OnEnter();
-	UE_LOG(LogTemp, Display, TEXT("WelcomeAl: Entered"));
 	StartSequence(1);
 	// TODO: display AL symbol and color
 }
 
 void WelcomeAl::OnExit()
 {
-	// TODO: disable buttons "yes" and "no"
+	SetButtonState("yes", false);
+	SetButtonState("no", false);
 }
 
 void WelcomeAl::Tick(float DeltaTime)
@@ -61,6 +62,7 @@ void WelcomeAl::OnSequenceFinished()
 	Super::OnSequenceFinished();
 	if (m_sequence_number == 1) 
 	{
-		// TODO: enable buttons "yes" and "no"
+		SetButtonState("yes", true);
+		SetButtonState("no", true);
 	}
 }

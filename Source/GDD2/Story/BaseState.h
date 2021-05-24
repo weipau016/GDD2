@@ -38,6 +38,8 @@ protected:
 	void StartSequence(int sequence_number);
 	float SecondsSinceSequenceFinished();
 
+	void SetButtonState(const std::string& name, bool active);
+
 	// Will exit current state and change to state_id state instead
 	void Exit(std::string state_id);
 
