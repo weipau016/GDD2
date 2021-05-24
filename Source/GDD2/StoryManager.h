@@ -14,15 +14,34 @@
 #include "GameFramework/Actor.h"
 #include "StoryManager.generated.h"
 
+class UButtonManager;
+
 UCLASS()
 class GDD2_API AStoryManager : public AActor
 {
 	GENERATED_BODY()
 
+public:
+	UFUNCTION(BlueprintCallable, Category = "StoryEvents")
+	FString GetScene() { return m_current_state->m_scene_name; }
+
+	UFUNCTION(BlueprintCallable, Category = "StoryEvents")
+	int GetSequence() { return m_current_state->m_sequence_number; }
+
+	UFUNCTION(BlueprintCallable, Category = "StoryEvents")
+	void SequenceFinished();
+
+	UFUNCTION(BlueprintCallable)
+	void RegisterButtonManager(UButtonManager* button_manager);
+
+	void ButtonPressed(const FString& name);
+
 protected:
 	BaseState* m_current_state;
 
 	std::map<std::string, BaseState*> m_states;
+	
+	UButtonManager* m_button_manager;
 
 	friend class BaseState;
 

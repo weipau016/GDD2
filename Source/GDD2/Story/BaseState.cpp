@@ -3,7 +3,9 @@
 #include "BaseState.h"
 #include "../StoryManager.h"
 
-BaseState::BaseState(AStoryManager* story_manager) : m_story_manager(story_manager)
+
+BaseState::BaseState(AStoryManager* story_manager, FString scene_name) : 
+	m_story_manager(story_manager), m_scene_name(scene_name), m_sequence_number(0)
 {
 }
 
@@ -21,6 +23,27 @@ void BaseState::OnExit()
 
 void BaseState::Tick(float DeltaTime)
 {
+}
+
+void BaseState::OnButtonPressed(const FString& button_name)
+{
+}
+
+void BaseState::OnSequenceFinished()
+{
+	m_time_sequence_finished = m_story_manager->GetGameTimeSinceCreation();
+}
+
+void BaseState::StartSequence(int sequence_number)
+{
+	m_time_sequence_finished = 0.0f;
+	m_sequence_number = sequence_number;
+}
+
+float BaseState::SecondsSinceSequenceFinished() 
+{
+	return m_time_sequence_finished > 0.0f ?
+		m_story_manager->GetGameTimeSinceCreation() - m_time_sequence_finished : 0.0f;
 }
 
 void BaseState::Exit(std::string state_id)
