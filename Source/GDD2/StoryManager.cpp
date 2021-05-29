@@ -75,5 +75,6 @@ void AStoryManager::RegisterButtonManager(UButtonManager* button_manager)
 void AStoryManager::ButtonPressed(const FString& name)
 {
 	UE_LOG(LogTemp, Display, TEXT("ButtonPressed: %s"), *name);
+	//m_button_manager->SetButtonState("TestButton2", !m_button_manager->IsButtonActive("TestButton2"));
 }
 

@@ -10,6 +10,11 @@ AConsoleButton::AConsoleButton()
 	PrimaryActorTick.bCanEverTick = true;
 }
 
+void AConsoleButton::OnButtonStateChange_Implementation(bool active)
+{
+	UE_LOG(LogTemp, Log, TEXT("Button '%s' is now %s"), *_name, *FString(active ? "enabled" : "disabled"));
+}
+
 // Called when the game starts or when spawned
 void AConsoleButton::BeginPlay()
 {
@@ -28,6 +33,6 @@ void AConsoleButton::Tick(float DeltaTime)
 void AConsoleButton::SetActiveState(bool active)
 {
 	_isActive = active;
-	UE_LOG(LogTemp, Log, TEXT("Button '%s' is now %s"), *_name, *FString(active ? "enabled" : "disabled"));
+	OnButtonStateChange(active);
 }
 

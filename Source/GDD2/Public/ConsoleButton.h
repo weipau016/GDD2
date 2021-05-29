@@ -21,6 +21,11 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Properties")
 	FString _name;
 
+	UFUNCTION(BlueprintNativeEvent)
+	void OnButtonStateChange(bool active);
+
+	virtual void OnButtonStateChange_Implementation(bool active);
+
 public:	
 	// Sets default values for this actor's properties
 	AConsoleButton();
