@@ -69,12 +69,12 @@ void AStoryManager::SequenceFinished()
 void AStoryManager::RegisterButtonManager(UButtonManager* button_manager)
 {
 	m_button_manager = button_manager;
-	UE_LOG(LogTemp, Display, TEXT("WE FOUND THE BUTTON MANAGER HURRAY!"));
+	UE_LOG(LogTemp, Display, TEXT("Registered ButtonManager!"));
 }
 
 void AStoryManager::ButtonPressed(const FString& name)
 {
 	UE_LOG(LogTemp, Display, TEXT("ButtonPressed: %s"), *name);
-	//m_button_manager->SetButtonState("TestButton2", !m_button_manager->IsButtonActive("TestButton2"));
+	m_current_state->OnButtonPressed(name);
 }
 
