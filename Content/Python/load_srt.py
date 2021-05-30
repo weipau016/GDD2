@@ -4,7 +4,7 @@ from os import listdir
 from os.path import isfile, join, isdir
 import os
 
-path_to_project = 'C:/Users/renowsky/Documents/TU/GDD2/WrongDirection/GDD2'
+path_to_project = 'C:/Users/renowsky/Documents/TU/GDD2/WrongDirection/Project/GDD2'
 
 class Sequence :
     def __init__(self, index, start, duration, text):
