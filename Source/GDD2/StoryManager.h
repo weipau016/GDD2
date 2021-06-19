@@ -34,6 +34,11 @@ public:
 
 	void ButtonPressed(const FString& name);
 
+	UFUNCTION(BlueprintNativeEvent, Category = "StoryEvents")
+	void PlaySound(const FString& name);
+
+	virtual void PlaySound_Implementation(const FString& name);
+
 protected:
 	BaseState* m_current_state;
 

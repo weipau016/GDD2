@@ -34,6 +34,11 @@ void AStoryManager::BeginPlay()
 	m_current_state->OnEnter();
 }
 
+void AStoryManager::PlaySound_Implementation(const FString& name)
+{
+}
+
+
 void AStoryManager::ChangeToState(std::string state_id)
 {
 	m_current_state->OnExit();
