@@ -81,9 +81,6 @@ void AStoryManager::ButtonPressed(const FString& name)
 {
 	UE_LOG(LogTemp, Display, TEXT("ButtonPressed: %s"), *name);
 	m_current_state->OnButtonPressed(name);
-
-	//m_button_manager->SetButtonMaterialState("tb1", MaterialState::GLOW);
-	//m_button_manager->SetButtonMaterialState("tb2", MaterialState::FLASH);
 }
 
 void AStoryManager::Skip()

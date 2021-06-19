@@ -15,6 +15,7 @@ void UButtonManager::RegisterButton(AConsoleButton* button)
 {
 	std::string name = button->GetNameAsString();
 	_buttons.insert({ name, button });
+	button->SetHiddenState(true);
 	UE_LOG(LogTemp, Log, TEXT("Button '%s' has been registered"), *button->GetName());
 }
 

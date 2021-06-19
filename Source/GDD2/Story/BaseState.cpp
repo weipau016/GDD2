@@ -48,9 +48,31 @@ float BaseState::SecondsSinceSequenceFinished()
 		m_story_manager->GetGameTimeSinceCreation() - m_time_sequence_finished : 0.0f;
 }
 
-void BaseState::SetButtonState(const std::string& name, bool active)
+void BaseState::SetButtonVisible(const std::string& name, bool visible)
+{
+	m_story_manager->m_button_manager->SetButtonHiddenState(name, !visible);
+}
+
+void BaseState::SetButtonActive(const std::string& name, bool active)
 {
 	m_story_manager->m_button_manager->SetButtonActiveState(name, active);
+}
+
+void BaseState::SetButtonLit(const std::string& name, bool lit)
+{
+	if (lit) 
+	{
+		m_story_manager->m_button_manager->SetButtonMaterialState(name, MaterialState::GLOW);
+	}
+	else 
+	{
+		m_story_manager->m_button_manager->SetButtonMaterialState(name, MaterialState::OFF);
+	}
+}
+
+void BaseState::FlashButton(const std::string& name)
+{
+	m_story_manager->m_button_manager->SetButtonMaterialState(name, MaterialState::FLASH);
 }
 
 void BaseState::Exit(std::string state_id)

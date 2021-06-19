@@ -21,8 +21,10 @@ void WelcomeAl::OnEnter()
 
 void WelcomeAl::OnExit()
 {
-	SetButtonState("yes", false);
-	SetButtonState("no", false);
+	SetButtonActive("yes", false);
+	SetButtonActive("no", false);
+	SetButtonLit("yes", false);
+	SetButtonLit("no", false);
 }
 
 void WelcomeAl::Tick(float DeltaTime)
@@ -62,7 +64,13 @@ void WelcomeAl::OnSequenceFinished()
 	Super::OnSequenceFinished();
 	if (m_sequence_number == 1) 
 	{
-		SetButtonState("yes", true);
-		SetButtonState("no", true);
+		SetButtonVisible("yes", true);
+		SetButtonVisible("no", true);
+		SetButtonActive("yes", true);
+		SetButtonActive("no", true);
+		//SetButtonLit("yes", true);
+		//SetButtonLit("no", true);
+		FlashButton("yes");
+		FlashButton("no");
 	}
 }
