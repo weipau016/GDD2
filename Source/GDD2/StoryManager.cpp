@@ -88,5 +88,10 @@ void AStoryManager::ButtonPressed(const FString& name)
 
 void AStoryManager::Skip()
 {
-	UE_LOG(LogTemp, Display, TEXT("Skip"));
+	UE_LOG(LogTemp, Display, TEXT("Skipping..."));
+	BaseState* current = m_current_state;
+	SequenceFinished();
+	if (current == m_current_state) {
+		m_current_state->m_time_sequence_finished -= 100000;
+	}
 }

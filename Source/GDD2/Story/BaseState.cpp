@@ -44,7 +44,7 @@ void BaseState::StartSequence(int sequence_number)
 
 float BaseState::SecondsSinceSequenceFinished() 
 {
-	return m_time_sequence_finished > 0.0f ?
+	return m_time_sequence_finished != 0.0f ?
 		m_story_manager->GetGameTimeSinceCreation() - m_time_sequence_finished : 0.0f;
 }
 
