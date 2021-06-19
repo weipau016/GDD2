@@ -5,12 +5,14 @@
 #include <unordered_map>
 #include <string>
 
+#include "ConsoleButton.h"
+
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "ButtonManager.generated.h"
 
 class AStoryManager;
-class AConsoleButton;
+//class AConsoleButton;
 
 /**
  * 
@@ -34,9 +36,15 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void RegisterButton(AConsoleButton* button);
 
-	void SetButtonState(const std::string& name, bool active);
+	void SetButtonActiveState(const std::string& name, bool active);
+
+	void SetButtonHiddenState(const std::string& name, bool hidden);
+
+	void SetButtonMaterialState(const std::string& name, MaterialState state);
 
 	bool IsButtonActive(const std::string& name) const;
+
+	bool IsButtonHidden(const std::string& name) const;
 
 	UFUNCTION(BlueprintCallable)
 	void ButtonPressed(const FString& name);

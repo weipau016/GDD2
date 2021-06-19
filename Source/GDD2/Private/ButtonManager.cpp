@@ -3,7 +3,6 @@
 
 #include "ButtonManager.h"
 #include "../StoryManager.h"
-#include "ConsoleButton.h"
 #include <stdexcept>
 
 
@@ -19,7 +18,7 @@ void UButtonManager::RegisterButton(AConsoleButton* button)
 	UE_LOG(LogTemp, Log, TEXT("Button '%s' has been registered"), *button->GetName());
 }
 
-void UButtonManager::SetButtonState(const std::string& name, bool active)
+void UButtonManager::SetButtonActiveState(const std::string& name, bool active)
 {
 	if (_buttons.find(name) == _buttons.end()) {
 		FString nameString(name.c_str());
@@ -29,9 +28,34 @@ void UButtonManager::SetButtonState(const std::string& name, bool active)
 	_buttons.at(name)->SetActiveState(active);
 }
 
+void UButtonManager::SetButtonHiddenState(const std::string& name, bool hidden)
+{
+	if (_buttons.find(name) == _buttons.end()) {
+		FString nameString(name.c_str());
+		UE_LOG(LogTemp, Warning, TEXT("No button '%s' has been registered"), *nameString);
+		return;
+	}
+	_buttons.at(name)->SetHiddenState(hidden);
+}
+
+void UButtonManager::SetButtonMaterialState(const std::string& name, MaterialState state)
+{
+	if (_buttons.find(name) == _buttons.end()) {
+		FString nameString(name.c_str());
+		UE_LOG(LogTemp, Warning, TEXT("No button '%s' has been registered"), *nameString);
+		return;
+	}
+	_buttons.at(name)->SetMaterialState(state);
+}
+
 bool UButtonManager::IsButtonActive(const std::string& name) const
 {
 	return _buttons.at(name)->IsActive();
+}
+
+bool UButtonManager::IsButtonHidden(const std::string& name) const
+{
+	return _buttons.at(name)->IsHidden();
 }
 
 void UButtonManager::ButtonPressed(const FString& name)

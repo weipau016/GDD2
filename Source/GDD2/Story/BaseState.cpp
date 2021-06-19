@@ -50,7 +50,7 @@ float BaseState::SecondsSinceSequenceFinished()
 
 void BaseState::SetButtonState(const std::string& name, bool active)
 {
-	m_story_manager->m_button_manager->SetButtonState(name, active);
+	m_story_manager->m_button_manager->SetButtonActiveState(name, active);
 }
 
 void BaseState::Exit(std::string state_id)

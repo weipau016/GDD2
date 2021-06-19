@@ -8,6 +8,13 @@
 #include "GameFramework/Actor.h"
 #include "ConsoleButton.generated.h"
 
+UENUM(BlueprintType)
+enum class MaterialState : uint8
+{
+	OFF			UMETA(Displayname = "Off"),
+	GLOW		UMETA(Displayname = "Glow"),
+	FLASH		UMETA(Displayname = "Flash"),
+};
 
 UCLASS()
 class GDD2_API AConsoleButton : public AActor
@@ -34,6 +41,11 @@ protected:
 
 	virtual void OnButtonHiddenStateChange_Implementation(bool hidden);
 
+	UFUNCTION(BlueprintNativeEvent)
+	void OnButtonMaterialStateChange(MaterialState state);
+
+	virtual void OnButtonMaterialStateChange_Implementation(MaterialState state);
+
 public:	
 	// Sets default values for this actor's properties
 	AConsoleButton();
@@ -51,6 +63,9 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void SetHiddenState(bool hidden);
+
+	UFUNCTION(BlueprintCallable)
+	void SetMaterialState(MaterialState state);
 
 	bool IsActive() const { return isActive; }
 

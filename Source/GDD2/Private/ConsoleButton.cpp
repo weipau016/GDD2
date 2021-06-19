@@ -20,6 +20,11 @@ void AConsoleButton::OnButtonHiddenStateChange_Implementation(bool hidden)
 	UE_LOG(LogTemp, Log, TEXT("Button '%s' is now %s"), *name, *FString(hidden ? "hidden" : "visible"));
 }
 
+void AConsoleButton::OnButtonMaterialStateChange_Implementation(MaterialState state)
+{
+	UE_LOG(LogTemp, Log, TEXT("Button '%s' material state changed"), *name);
+}
+
 // Called when the game starts or when spawned
 void AConsoleButton::BeginPlay()
 {
@@ -46,5 +51,10 @@ void AConsoleButton::SetHiddenState(bool hidden)
 {
 	isHidden = hidden;
 	OnButtonHiddenStateChange(hidden);
+}
+
+void AConsoleButton::SetMaterialState(MaterialState state)
+{
+	OnButtonMaterialStateChange(state);
 }
 
