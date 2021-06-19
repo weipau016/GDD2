@@ -10,9 +10,14 @@ AConsoleButton::AConsoleButton()
 	PrimaryActorTick.bCanEverTick = true;
 }
 
-void AConsoleButton::OnButtonStateChange_Implementation(bool active)
+void AConsoleButton::OnButtonActiveStateChange_Implementation(bool active)
 {
-	UE_LOG(LogTemp, Log, TEXT("Button '%s' is now %s"), *_name, *FString(active ? "enabled" : "disabled"));
+	UE_LOG(LogTemp, Log, TEXT("Button '%s' is now %s"), *name, *FString(active ? "enabled" : "disabled"));
+}
+
+void AConsoleButton::OnButtonHiddenStateChange_Implementation(bool hidden)
+{
+	UE_LOG(LogTemp, Log, TEXT("Button '%s' is now %s"), *name, *FString(hidden ? "hidden" : "visible"));
 }
 
 // Called when the game starts or when spawned
@@ -21,7 +26,8 @@ void AConsoleButton::BeginPlay()
 	Super::BeginPlay();
 
 	// For changes made in editor ???
-	SetActiveState(_isActive);
+	SetActiveState(isActive);
+	SetHiddenState(isHidden);
 }
 
 // Called every frame
@@ -32,7 +38,13 @@ void AConsoleButton::Tick(float DeltaTime)
 
 void AConsoleButton::SetActiveState(bool active)
 {
-	_isActive = active;
-	OnButtonStateChange(active);
+	isActive = active;
+	OnButtonActiveStateChange(active);
+}
+
+void AConsoleButton::SetHiddenState(bool hidden)
+{
+	isHidden = hidden;
+	OnButtonHiddenStateChange(hidden);
 }
 

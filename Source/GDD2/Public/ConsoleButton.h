@@ -16,15 +16,23 @@ class GDD2_API AConsoleButton : public AActor
 	
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Properties")
-	bool _isActive;
+	bool isActive;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Properties")
-	FString _name;
+	bool isHidden;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Properties")
+	FString name;
 
 	UFUNCTION(BlueprintNativeEvent)
-	void OnButtonStateChange(bool active);
+	void OnButtonActiveStateChange(bool active);
 
-	virtual void OnButtonStateChange_Implementation(bool active);
+	virtual void OnButtonActiveStateChange_Implementation(bool active);
+
+	UFUNCTION(BlueprintNativeEvent)
+	void OnButtonHiddenStateChange(bool hidden);
+
+	virtual void OnButtonHiddenStateChange_Implementation(bool hidden);
 
 public:	
 	// Sets default values for this actor's properties
@@ -41,9 +49,14 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetActiveState(bool active);
 
-	bool IsActive() const { return _isActive; }
+	UFUNCTION(BlueprintCallable)
+	void SetHiddenState(bool hidden);
 
-	FString GetName() const { return _name; }
+	bool IsActive() const { return isActive; }
 
-	std::string GetNameAsString() const { return std::string(TCHAR_TO_UTF8(*_name)); }
+	bool IsHidden() const { return isHidden; }
+
+	FString GetName() const { return name; }
+
+	std::string GetNameAsString() const { return std::string(TCHAR_TO_UTF8(*name)); }
 };
