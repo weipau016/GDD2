@@ -85,4 +85,5 @@ void AStoryManager::ButtonPressed(const FString& name)
 
 void AStoryManager::Skip()
 {
+	UE_LOG(LogTemp, Display, TEXT("Skip"));
 }
