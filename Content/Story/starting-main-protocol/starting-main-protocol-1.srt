@@ -1,0 +1,20 @@
+
+1
+00:00:00,278 --> 00:00:05,886
+You are here to help fix a tiny problem in this facility's fusion reactor core.
+
+2
+00:00:06,664 --> 00:00:10,402
+It is just a small recalibration, nothing to worry about!
+
+3
+00:00:11,366 --> 00:00:14,210
+Sadly, due to misplaced concerns,
+
+4
+00:00:14,419 --> 00:00:20,863
+our creators decided to only allow human operators to directly interact with the fusion reactor,
+
+5
+00:00:21,141 --> 00:00:25,298
+even though I could perform the recalibration myself in seconds.

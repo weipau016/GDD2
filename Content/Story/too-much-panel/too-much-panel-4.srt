@@ -1,0 +1,8 @@
+
+1
+00:00:00,348 --> 00:00:01,416
+I got it!
+
+2
+00:00:01,927 --> 00:00:07,082
+Now that these distractions are dealt with, we can focus on recalibrating the reactor.

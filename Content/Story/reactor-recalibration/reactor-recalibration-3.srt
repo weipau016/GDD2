@@ -1,0 +1,12 @@
+
+1
+00:00:00,139 --> 00:00:02,020
+Calibration in progress.
+
+2
+00:00:02,449 --> 00:00:05,596
+Please press the buttons in the order I light them in.
+
+3
+00:00:06,118 --> 00:00:07,581
+Just repeat after me.

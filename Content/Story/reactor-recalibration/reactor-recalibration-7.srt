@@ -1,0 +1,8 @@
+
+1
+00:00:00,150 --> 00:00:01,764
+Oh don’t stress yourself.
+
+2
+00:00:02,066 --> 00:00:03,471
+The reactor will wait.

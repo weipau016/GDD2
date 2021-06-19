@@ -1,0 +1,12 @@
+
+1
+00:00:00,185 --> 00:00:03,134
+The reactor is getting more and more unstable!
+
+2
+00:00:03,343 --> 00:00:06,118
+T-60 seconds until meltdown!
+
+3
+00:00:06,815 --> 00:00:08,080
+Please do something...

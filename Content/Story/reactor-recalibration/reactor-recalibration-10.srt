@@ -1,0 +1,20 @@
+
+1
+00:00:00,162 --> 00:00:02,333
+No, that was wrong.
+
+2
+00:00:02,821 --> 00:00:04,493
+No problem, you got this.
+
+3
+00:00:04,783 --> 00:00:07,592
+Please hit the buttons in the order I light them up in.
+
+4
+00:00:08,115 --> 00:00:10,495
+Think of this as the game Simon Says…
+
+5
+00:00:10,495 --> 00:00:13,258
+just with somewhat higher stakes.

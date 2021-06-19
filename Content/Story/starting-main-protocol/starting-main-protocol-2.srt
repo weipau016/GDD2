@@ -1,0 +1,8 @@
+
+1
+00:00:00,208 --> 00:00:05,038
+I will now activate the operator access panel that you will need for this mission.
+
+2
+00:00:05,317 --> 00:00:06,513
+Please wait a moment.

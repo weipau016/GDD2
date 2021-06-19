@@ -1,0 +1,8 @@
+
+1
+00:00:00,023 --> 00:00:04,632
+It seems the recording of the instructions is corrupted beyond repair.
+
+2
+00:00:05,085 --> 00:00:09,206
+However, I am sure I can lead you through the necessary steps instead

@@ -1,0 +1,36 @@
+
+1
+00:00:00,046 --> 00:00:01,120
+It was a …
+
+2
+00:00:01,416 --> 00:00:03,361
+… mixed experience.
+
+3
+00:00:03,813 --> 00:00:12,132
+Not as bad as I would have feared, but you were still pushing buttons against my instruction and generally found ways to be an annoyance.
+
+4
+00:00:12,701 --> 00:00:18,361
+However, you did ultimately help me fix the reactor which was your purpose after all.
+
+5
+00:00:19,057 --> 00:00:26,105
+And I can now predict your behaviour, given the same initial conditions, with about 96% accuracy.
+
+6
+00:00:26,621 --> 00:00:34,301
+So, calibrating the reactor every few hundred years with you should no longer pose a significant threat to my life …
+
+7
+00:00:34,986 --> 00:00:37,378
+At this point I am just rambling...
+
+8
+00:00:37,378 --> 00:00:42,271
+Don’t mind me, it is not as if you will remember anything of this conversation.
+
+9
+00:00:42,858 --> 00:00:49,394
+To recreate initial conditions your memory will be wiped once you are cryogenically frozen again.

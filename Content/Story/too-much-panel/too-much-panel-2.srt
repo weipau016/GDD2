@@ -1,0 +1,8 @@
+
+1
+00:00:00,417 --> 00:00:04,017
+The deactivation seems to not be working correctly.
+
+2
+00:00:04,690 --> 00:00:06,896
+Hm, maybe if I…

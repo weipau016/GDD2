@@ -1,0 +1,36 @@
+
+1
+00:00:00,069 --> 00:00:02,879
+Recalibration successful.
+
+2
+00:00:03,274 --> 00:00:04,423
+Well done!
+
+3
+00:00:04,876 --> 00:00:08,277
+All parameters are falling into expected ranges.
+
+4
+00:00:08,986 --> 00:00:13,467
+Still, I will have to perform an in depth check of everything.
+
+5
+00:00:14,268 --> 00:00:16,079
+That may take a bit of time,
+
+6
+00:00:16,079 --> 00:00:20,781
+why don’t you stretch your legs or relax a bit before going back to sleep again?
+
+7
+00:00:21,408 --> 00:00:27,573
+I imagine you are quite stiff and performing such a stressful task is bound to leave you exhausted.
+
+8
+00:00:28,270 --> 00:00:33,587
+I will run through my checklist first, so you can enjoy the fresh air for a while.
+
+9
+00:00:34,063 --> 00:00:37,209
+After helping me with the reactor you’ve earned it.

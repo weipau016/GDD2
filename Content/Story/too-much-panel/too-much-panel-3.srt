@@ -1,0 +1,12 @@
+
+1
+00:00:00,116 --> 00:00:03,111
+Something is definitely not right with these buttons,
+
+2
+00:00:03,343 --> 00:00:05,781
+I should be able to deactivate them with …
+
+3
+00:00:06,431 --> 00:00:07,058
+hm...
