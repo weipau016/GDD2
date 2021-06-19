@@ -83,3 +83,6 @@ void AStoryManager::ButtonPressed(const FString& name)
 	m_current_state->OnButtonPressed(name);
 }
 
+void AStoryManager::Skip()
+{
+}

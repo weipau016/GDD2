@@ -39,6 +39,9 @@ public:
 
 	virtual void PlaySound_Implementation(const FString& name);
 
+	UFUNCTION(BlueprintCallable)
+	void Skip();
+
 protected:
 	BaseState* m_current_state;
 
