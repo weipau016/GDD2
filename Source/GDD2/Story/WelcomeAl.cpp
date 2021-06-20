@@ -6,6 +6,7 @@
 
 WelcomeAl::WelcomeAl(AStoryManager* story_manager, FString scene_name) : BaseState(story_manager, scene_name)
 {
+	m_last_sequence_number = 6;
 }
 
 WelcomeAl::~WelcomeAl()
@@ -21,6 +22,7 @@ void WelcomeAl::OnEnter()
 
 void WelcomeAl::OnExit()
 {
+	Super::OnExit();
 	SetButtonActive("yes", false);
 	SetButtonActive("no", false);
 	SetButtonLit("yes", false);
@@ -30,16 +32,7 @@ void WelcomeAl::OnExit()
 void WelcomeAl::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	if (SecondsSinceSequenceFinished() > 5) {
-		if (m_sequence_number == 6)
-		{
-			Exit("ai-prejudice-inaction");
-		}
-		else
-		{
-			StartSequence(m_sequence_number + 1);
-		}
-	}
+	NextSequenceOrExitOnLastAfterWait("ai-prejudice-inaction", 5);
 }
 
 void WelcomeAl::OnButtonPressed(const FString& button_name)
@@ -52,10 +45,6 @@ void WelcomeAl::OnButtonPressed(const FString& button_name)
 	else if (button_name == "no")
 	{
 		Exit("ai-prejudice-no");
-	}
-	else
-	{
-		// TODO: error?
 	}
 }
 

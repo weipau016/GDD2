@@ -9,16 +9,14 @@
 /**
  * 
  */
-class GDD2_API TheVeryStart : public BaseState
+class GDD2_API StartingMainProtocol : public BaseState
 {
 public:
-	TheVeryStart(AStoryManager* story_manager, FString scene_name);
-	virtual ~TheVeryStart();
+	StartingMainProtocol(AStoryManager* story_manager, FString scene_name);
+	~StartingMainProtocol();
 
 private:
 	typedef BaseState Super;
-
-	bool m_startup_sound = false;
 
 protected:
 	virtual void OnEnter();

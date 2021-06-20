@@ -5,6 +5,7 @@
 
 AiPrejudiceNo::AiPrejudiceNo(AStoryManager* story_manager, FString scene_name) : BaseState(story_manager, scene_name)
 {
+	m_last_sequence_number = 2;
 }
 
 AiPrejudiceNo::~AiPrejudiceNo()
@@ -20,15 +21,5 @@ void AiPrejudiceNo::OnEnter()
 void AiPrejudiceNo::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	int last_scene = 2;
-	if (SecondsSinceSequenceFinished() > 2) {
-		if (m_sequence_number == last_scene)
-		{
-			Exit("the-very-start"); // TODO: replace with actual follow state
-		}
-		else
-		{
-			StartSequence(m_sequence_number + 1);
-		}
-	}
+	NextSequenceOrExitOnLastAfterWait("starting-main-protocol", 2);
 }

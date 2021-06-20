@@ -18,11 +18,13 @@ protected:
 
 	FString m_scene_name;
 	int m_sequence_number;
+	int m_last_sequence_number; // set individually in derived ctor
 
 	friend class AStoryManager;
 
 private:
 	float m_time_sequence_finished;
+	float m_time_ticked;
 
 
 protected:
@@ -43,9 +45,22 @@ protected:
 	void SetButtonLit(const std::string& name, bool lit);
 	void FlashButton(const std::string& name);
 
+	void PlaySound(const FString& name);
+
 	// Will exit current state and change to state_id state instead
 	void Exit(std::string state_id);
 
 	// Will exit current state and change to last state instead
 	void Exit();
+
+	// helper
+	// (return true if sequence was changed/exit was called)
+	bool ExitAfterWait(const float second_to_wait); // call Exit()
+	bool ExitAfterWait(const std::string& state_id, const float second_to_wait);
+	bool SequenceAfterWait(const int next_sequence_number, const float second_to_wait);
+	bool SequenceOrExitOnLastAfterWait(const int next_sequence_number, const float second_to_wait); 
+	bool SequenceOrExitOnLastAfterWait(const int next_sequence_number, const std::string& state_id, const float second_to_wait);
+	bool NextSequenceAfterWait(const float second_to_wait);
+	bool NextSequenceOrExitOnLastAfterWait(const float second_to_wait);
+	bool NextSequenceOrExitOnLastAfterWait(const std::string& state_id, const float second_to_wait);
 };

@@ -10,6 +10,7 @@
 #include "Story/AiPrejudiceYes.h"
 #include "Story/AiPrejudiceNo.h"
 #include "Story/AiPrejudiceInaction.h"
+#include "Story/StartingMainProtocol.h"
 
 // Sets default values
 AStoryManager::AStoryManager()
@@ -21,6 +22,7 @@ AStoryManager::AStoryManager()
 	m_states.insert({ "ai-prejudice-yes",		new AiPrejudiceYes(this, "ai-prejudice-yes") });
 	m_states.insert({ "ai-prejudice-no",		new AiPrejudiceNo(this, "ai-prejudice-no") });
 	m_states.insert({ "ai-prejudice-inaction",	new AiPrejudiceInaction(this, "ai-prejudice-inaction") });
+	m_states.insert({ "starting-main-protocol",	new StartingMainProtocol(this, "starting-main-protocol") });
 
 	std::string starting_state_id = "the-very-start";
 	m_current_state = m_states[starting_state_id];
@@ -91,7 +93,5 @@ void AStoryManager::Skip()
 	if (current == m_current_state) {
 		m_current_state->m_time_sequence_finished -= 100000;
 	}
-
-	// play debug sound
-	PlaySound("ambient");
+	PlaySound("button_press");
 }
