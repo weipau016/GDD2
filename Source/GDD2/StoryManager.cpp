@@ -91,4 +91,7 @@ void AStoryManager::Skip()
 	if (current == m_current_state) {
 		m_current_state->m_time_sequence_finished -= 100000;
 	}
+
+	// play debug sound
+	PlaySound("ambient");
 }
