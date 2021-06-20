@@ -13,7 +13,7 @@ class GDD2_API StartingMainProtocol : public BaseState
 {
 public:
 	StartingMainProtocol(AStoryManager* story_manager, FString scene_name);
-	~StartingMainProtocol();
+	virtual ~StartingMainProtocol();
 
 private:
 	typedef BaseState Super;
