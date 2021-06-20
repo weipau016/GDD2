@@ -25,6 +25,9 @@ def read_srt(path) :
         # read all lines
         lines = fp.readlines()
         
+        while lines[0] == "\n":
+            lines.pop(0)
+        
         # initialize variables
         current_index = -1
         current_start = 0.0
@@ -124,7 +127,7 @@ for item in directory_contents:
     if isdir(join(story_directory, item)):
         # import sound assets
         pass
-        #import_sound_assets(item + '/')
+        import_sound_assets(item + '/')
 
 
 # get the generated class of the Blueprint (note the _C)
