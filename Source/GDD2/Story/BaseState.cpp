@@ -43,6 +43,7 @@ void BaseState::StartSequence(int sequence_number)
 {
 	m_time_sequence_finished = 0.0f;
 	m_sequence_number = sequence_number;
+	UE_LOG(LogTemp, Display, TEXT("Running sequence: %d"), m_sequence_number);
 }
 
 float BaseState::SecondsSinceSequenceFinished() 
