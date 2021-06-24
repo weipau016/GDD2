@@ -13,6 +13,7 @@
 #include "StoryManager.generated.h"
 
 class UButtonManager;
+class UEffectManager;
 
 UCLASS()
 class GDD2_API AStoryManager : public AActor
@@ -32,6 +33,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void RegisterButtonManager(UButtonManager* button_manager);
 
+	UFUNCTION(BlueprintCallable)
+	void RegisterEffectManager(UEffectManager* effect_manager);
+
 	void ButtonPressed(const FString& name);
 
 	UFUNCTION(BlueprintNativeEvent, Category = "StoryEvents")
@@ -48,6 +52,8 @@ protected:
 	std::map<std::string, BaseState*> m_states;
 	
 	UButtonManager* m_button_manager;
+
+	UEffectManager* m_effect_manager;
 
 	friend class BaseState;
 
