@@ -5,7 +5,7 @@
 #include <vector>
 
 #include "CoreMinimal.h"
-#include "UObject/NoExportTypes.h"
+#include "GameFramework/Actor.h"
 #include "EffectManager.generated.h"
 
 class ASmokeEffect;
@@ -13,8 +13,8 @@ class ASmokeEffect;
 /**
  * 
  */
-UCLASS(BlueprintType)
-class GDD2_API UEffectManager : public UObject
+UCLASS()
+class GDD2_API AEffectManager : public AActor
 {
 	GENERATED_BODY()
 
@@ -23,16 +23,27 @@ private:
 	std::vector<ASmokeEffect*> _toxinEffects;
 
 public:
+	// Sets default values for this actor's properties
+	AEffectManager();
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
+public:
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
 	UFUNCTION(BlueprintCallable)
 	void RegisterSmokeEffect(ASmokeEffect* smokeEffect);
 
-	UFUNCTION(BlueprintNativeEvent, Category = "Effects")
 	void ActivateFreezingGas(float activeTime);
-
-	virtual void ActivateFreezingGas_Implementation(float activeTime);
-
-	UFUNCTION(BlueprintNativeEvent, Category = "Effects")
+	void DeactivateFreezingGas();
 	void ActivateToxicGas(float activeTime);
+	void DeactivateToxicGas();
 
-	virtual void ActivateToxicGas_Implementation(float activeTime);
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void ActivateFadeToBlack();
+
+	virtual void ActivateFadeToBlack_Implementation();
 };

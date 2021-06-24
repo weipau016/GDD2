@@ -12,7 +12,7 @@ UENUM(BlueprintType)
 enum class SmokeType : uint8
 {
 	FREEZING		UMETA(Displayname = "Freezing"),
-	TOXIN			UMETA(Displayname = "Toxin"),
+	TOXIN				UMETA(Displayname = "Toxin"),
 };
 
 UCLASS()

@@ -13,7 +13,7 @@
 #include "StoryManager.generated.h"
 
 class UButtonManager;
-class UEffectManager;
+class AEffectManager;
 
 UCLASS()
 class GDD2_API AStoryManager : public AActor
@@ -34,7 +34,7 @@ public:
 	void RegisterButtonManager(UButtonManager* button_manager);
 
 	UFUNCTION(BlueprintCallable)
-	void RegisterEffectManager(UEffectManager* effect_manager);
+	void RegisterEffectManager(AEffectManager* effect_manager);
 
 	void ButtonPressed(const FString& name);
 
@@ -53,7 +53,7 @@ protected:
 	
 	UButtonManager* m_button_manager;
 
-	UEffectManager* m_effect_manager;
+	AEffectManager* m_effect_manager;
 
 	friend class BaseState;
 

@@ -4,7 +4,22 @@
 #include "EffectManager.h"
 #include "SmokeEffect.h"
 
-void UEffectManager::RegisterSmokeEffect(ASmokeEffect* smokeEffect)
+// Sets default values
+AEffectManager::AEffectManager()
+{
+	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	PrimaryActorTick.bCanEverTick = false;
+}
+
+void AEffectManager::BeginPlay()
+{
+}
+
+void AEffectManager::Tick(float DeltaTime)
+{
+}
+
+void AEffectManager::RegisterSmokeEffect(ASmokeEffect* smokeEffect)
 {
 	switch (smokeEffect->type)
 	{
@@ -17,10 +32,38 @@ void UEffectManager::RegisterSmokeEffect(ASmokeEffect* smokeEffect)
 	}
 }
 
-void UEffectManager::ActivateFreezingGas_Implementation(float activeTime)
+void AEffectManager::ActivateFreezingGas(float activeTime)
 {
+	for (const auto effect : _freezeEffects)
+	{
+		effect->Activate(activeTime);
+	}
 }
 
-void UEffectManager::ActivateToxicGas_Implementation(float activeTime)
+void AEffectManager::DeactivateFreezingGas()
+{
+	for (const auto effect : _freezeEffects)
+	{
+		effect->Deactivate();
+	}
+}
+
+void AEffectManager::ActivateToxicGas(float activeTime)
+{
+	for (const auto effect : _toxinEffects)
+	{
+		effect->Activate(activeTime);
+	}
+}
+
+void AEffectManager::DeactivateToxicGas()
+{
+	for (const auto effect : _toxinEffects)
+	{
+		effect->Deactivate();
+	}
+}
+
+void AEffectManager::ActivateFadeToBlack_Implementation()
 {
 }

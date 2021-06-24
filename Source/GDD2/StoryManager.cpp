@@ -104,7 +104,7 @@ void AStoryManager::RegisterButtonManager(UButtonManager* button_manager)
 	UE_LOG(LogTemp, Display, TEXT("Registered ButtonManager!"));
 }
 
-void AStoryManager::RegisterEffectManager(UEffectManager* effect_manager)
+void AStoryManager::RegisterEffectManager(AEffectManager* effect_manager)
 {
 	m_effect_manager = effect_manager;
 	UE_LOG(LogTemp, Display, TEXT("Registered EffectManager!"));
