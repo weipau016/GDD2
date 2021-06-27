@@ -17,4 +17,11 @@ public:
 
 private:
 	typedef BaseState Super;
+
+	bool m_buttons_deactivated = false;
+
+protected:
+	virtual void OnEnter();
+	virtual void Tick(float DeltaTime);
+	virtual void OnButtonPressed(const FString& button_name);
 };

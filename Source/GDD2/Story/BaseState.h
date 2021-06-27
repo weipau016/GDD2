@@ -22,7 +22,7 @@ protected:
 
 	friend class AStoryManager;
 
-private:
+protected:
 	float m_time_sequence_finished;
 	float m_time_ticked;
 
