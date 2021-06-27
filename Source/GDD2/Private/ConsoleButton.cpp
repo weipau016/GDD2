@@ -2,6 +2,7 @@
 
 
 #include "ConsoleButton.h"
+#include "Misc/AssertionMacros.h"
 
 // Sets default values
 AConsoleButton::AConsoleButton()
@@ -28,11 +29,15 @@ void AConsoleButton::OnButtonMaterialStateChange_Implementation(MaterialState st
 // Called when the game starts or when spawned
 void AConsoleButton::BeginPlay()
 {
-	Super::BeginPlay();
+	UE_LOG(LogTemp, Log, TEXT("Button '%s' begin play"), *name);
 
 	// For changes made in editor ???
-	SetActiveState(isActive);
-	SetHiddenState(isHidden);
+	//SetActiveState(isActive);
+	//SetHiddenState(isHidden);
+	OnButtonActiveStateChange(isActive);
+	OnButtonHiddenStateChange(isHidden);
+
+	Super::BeginPlay();
 }
 
 // Called every frame
