@@ -9,7 +9,7 @@ Reactor temperature spiking...
 
 3
 00:00:04,040 --> 00:00:06,304
-Ok, now please don’t panic!
+Ok, now please don't panic!
 
 4
 00:00:06,582 --> 00:00:08,277

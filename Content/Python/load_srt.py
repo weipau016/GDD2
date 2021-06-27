@@ -20,7 +20,7 @@ def read_srt(path) :
     read_text = False
     sequences = []
     
-    with open(path_to_project + '/Content/Story/' + path) as fp:
+    with open(path_to_project + '/Content/Story/' + path, 'r') as fp:
         
         # read all lines
         lines = fp.readlines()
@@ -34,16 +34,19 @@ def read_srt(path) :
         current_duration = 0.0
         text = ""
         
+        lines.append('\n')
+        
         # parse lines
         for line in lines:
         
             # read text part
-            if read_text :
+            if read_text :                   
                 # check if we are done
-                if line == "\n":
+                if line == '\n':
                     read_index = True
                     read_text = False
-                    sequences.append(Sequence(current_index, current_start + 0.1, current_duration, text))
+                    unreal.log(path + ' ' + text)
+                    sequences.append(Sequence(current_index, current_start + 0.01, current_duration, text))
                     text = ''
                     continue
                 
@@ -52,6 +55,8 @@ def read_srt(path) :
             
             # read the sequence index
             if read_index == True:
+                if line == '\n':
+                    continue
                 current_index = int(line.split()[0])
                 read_index = False
                 read_time_stamp = True
@@ -80,7 +85,7 @@ def read_srt(path) :
                 read_text = True
                 continue
                 
-            #unreal.log(line)
+            
     return sequences
     
 def add_srt_sequences(sequences, new_sequence, prototype_srt_sequence):
@@ -100,12 +105,20 @@ def add_srt_sequences(sequences, new_sequence, prototype_srt_sequence):
         
 def import_sound_assets(destination_folder):
     dir = path_to_project + '/Content/Story/' + destination_folder
-    files = [f for f in listdir(dir) if isfile(join(dir, f)) and f[-3:]=='ogg']
+    files = [f for f in listdir(dir) if isfile(join(dir, f)) and (f[-4:]=='flac' or f[-3:]=='ogg')]
     AssetTools = unreal.AssetToolsHelpers.get_asset_tools()
 
     import_tasks = []
     for f in files:
-        print (join(dir, f))
+        
+        split_file_name = f.split('.')
+        sound_name = split_file_name[0]
+        
+        if split_file_name[1] == 'ogg' and sound_name + '.flac' in files:
+            continue
+        
+        unreal.log("sound file name " + f)
+        
         AssetImportTask = unreal.AssetImportTask()
         AssetImportTask.set_editor_property('filename', join(dir, f))
         AssetImportTask.set_editor_property('destination_path', '/Game/Story/' + destination_folder)
@@ -160,9 +173,13 @@ for item in directory_contents:
         
         # get all srt files
         srt_files = [f for f in listdir(current_scene) if isfile(join(current_scene, f)) and f[-3:]=='srt']
-        unreal.log(srt_files)
         
         scene_config.setdefault(item, len(scene_sequences))
+        
+        # allocate scene sequences
+        previous_length = len(scene_sequences)
+        for i in range(len(srt_files)):
+            scene_sequences.append(None)
         
         # parse srt files for current scene
         for srt_file in srt_files:
@@ -173,7 +190,7 @@ for item in directory_contents:
             sequences = read_srt(item + '/' + srt_file)
             
             sound_name = srt_file.split('.')[0]
-            unreal.log(sound_name)
+            unreal.log('sound_name ' + sound_name)
             
             # load the sound asset
             sound_asset = unreal.EditorAssetLibrary.load_asset('/Game/Story/' + item + '/' + sound_name + '.' + sound_name)
@@ -191,7 +208,9 @@ for item in directory_contents:
                 unreal.log(sequence.duration)
                 unreal.log(sequence.text)
             '''
-            scene_sequences.append(new_sequence)
+            
+            index = int(sound_name[sound_name.rfind('-')+1:]) - 1
+            scene_sequences[previous_length + index] = new_sequence
 
 
 
