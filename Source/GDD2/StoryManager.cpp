@@ -3,6 +3,7 @@
 
 #include "StoryManager.h"
 #include "ButtonManager.h"
+#include "EffectManager.h"
 
 #include "Story/BaseState.h"
 #include "Story/TheVeryStart.h"
@@ -101,6 +102,12 @@ void AStoryManager::RegisterButtonManager(UButtonManager* button_manager)
 {
 	m_button_manager = button_manager;
 	UE_LOG(LogTemp, Display, TEXT("Registered ButtonManager!"));
+}
+
+void AStoryManager::RegisterEffectManager(AEffectManager* effect_manager)
+{
+	m_effect_manager = effect_manager;
+	UE_LOG(LogTemp, Display, TEXT("Registered EffectManager!"));
 }
 
 void AStoryManager::ButtonPressed(const FString& name)

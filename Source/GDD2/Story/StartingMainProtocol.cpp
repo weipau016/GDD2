@@ -22,5 +22,5 @@ void StartingMainProtocol::OnEnter()
 void StartingMainProtocol::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	NextSequenceOrExitOnLastAfterWait("the-very-start", 2); // TODO: replace with actual follow state
+	NextSequenceOrExitOnLastAfterWait("too-much-panel", 2);
 }

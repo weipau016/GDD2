@@ -5,15 +5,15 @@ Oh ...
 
 2
 00:00:01,102 --> 00:00:03,076
-that was not supposed to happen…
+that was not supposed to happen...
 
 3
 00:00:03,541 --> 00:00:10,425
-I seemed to have activated a number of … unnecessary features that we will not be needing for our repair.
+I seemed to have activated a number of ... unnecessary features that we will not be needing for our repair.
 
 4
 00:00:11,261 --> 00:00:14,779
-Please wait and do not press anything while I remove these …
+Please wait and do not press anything while I remove these ...
 
 5
 00:00:14,779 --> 00:00:17,565

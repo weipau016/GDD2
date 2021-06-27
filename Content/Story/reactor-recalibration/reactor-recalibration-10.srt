@@ -13,7 +13,7 @@ Please hit the buttons in the order I light them up in.
 
 4
 00:00:08,115 --> 00:00:10,495
-Think of this as the game Simon Says…
+Think of this as the game Simon Says...
 
 5
 00:00:10,495 --> 00:00:13,258

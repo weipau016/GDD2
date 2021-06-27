@@ -21,7 +21,7 @@ That may take a bit of time,
 
 6
 00:00:16,079 --> 00:00:20,781
-why don’t you stretch your legs or relax a bit before going back to sleep again?
+why don't you stretch your legs or relax a bit before going back to sleep again?
 
 7
 00:00:21,408 --> 00:00:27,573
@@ -33,4 +33,4 @@ I will run through my checklist first, so you can enjoy the fresh air for a whil
 
 9
 00:00:34,063 --> 00:00:37,209
-After helping me with the reactor you’ve earned it.
+After helping me with the reactor you've earned it.

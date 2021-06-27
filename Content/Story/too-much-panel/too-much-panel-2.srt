@@ -5,4 +5,4 @@ The deactivation seems to not be working correctly.
 
 2
 00:00:04,690 --> 00:00:06,896
-Hm, maybe if I…
+Hm, maybe if I...
