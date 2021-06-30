@@ -76,16 +76,20 @@ void AEffectManager::ActivateFadeToWhite_Implementation(float fadeDuration)
 
 void AEffectManager::SetLightIntensity_Implementation(float intensity)
 {
+	UE_LOG(LogTemp, Log, TEXT("Setting light intensity to %f"), intensity);
 }
 
 void AEffectManager::ResetLightIntensity_Implementation()
 {
+	UE_LOG(LogTemp, Log, TEXT("Resetting light intensity"));
 }
 
 void AEffectManager::SetLightColor_Implementation(FLinearColor color)
 {
+	UE_LOG(LogTemp, Log, TEXT("Setting light color"));
 }
 
 void AEffectManager::BlinkLight_Implementation(FLinearColor color, float frequency, float duration, FLinearColor resetColor)
 {
+	UE_LOG(LogTemp, Log, TEXT("Blinking lights for %fs"), duration);
 }

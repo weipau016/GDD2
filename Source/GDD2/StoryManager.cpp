@@ -129,6 +129,9 @@ void AStoryManager::Skip()
 		m_current_state->m_time_sequence_finished -= 100000;
 	}
 	PlaySound("button_press");
+
+	//m_effect_manager->BlinkLight(FLinearColor(1.0f, 0.5f, 0.0f), 0.5f, 4.0f, FLinearColor(1.0f, 1.0f, 1.0f));
+	//m_effect_manager->SetLightIntensity(0.0f);
 }
 
 void AStoryManager::ToMenu()
