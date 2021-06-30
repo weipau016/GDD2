@@ -39,16 +39,31 @@ public:
 
 	void ActivateFreezingGas(float activeTime);
 	void DeactivateFreezingGas();
+
 	void ActivateToxicGas(float activeTime);
 	void DeactivateToxicGas();
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void ActivateFadeToBlack(float fadeDuration);
-
 	virtual void ActivateFadeToBlack_Implementation(float fadeDuration);
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void ActivateFadeToWhite(float fadeDuration);
-
 	virtual void ActivateFadeToWhite_Implementation(float fadeDuration);
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void SetLightIntensity(float intensity);
+	virtual void SetLightIntensity_Implementation(float intensity);
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void ResetLightIntensity();
+	virtual void ResetLightIntensity_Implementation();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void SetLightColor(FLinearColor color);
+	virtual void SetLightColor_Implementation(FLinearColor color);
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void BlinkLight(FLinearColor color, float frequency, float duration, FLinearColor resetColor);
+	virtual void BlinkLight_Implementation(FLinearColor color, float frequency, float duration, FLinearColor resetColor);
 };

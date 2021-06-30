@@ -73,3 +73,19 @@ void AEffectManager::ActivateFadeToBlack_Implementation(float fadeDuration)
 void AEffectManager::ActivateFadeToWhite_Implementation(float fadeDuration)
 {
 }
+
+void AEffectManager::SetLightIntensity_Implementation(float intensity)
+{
+}
+
+void AEffectManager::ResetLightIntensity_Implementation()
+{
+}
+
+void AEffectManager::SetLightColor_Implementation(FLinearColor color)
+{
+}
+
+void AEffectManager::BlinkLight_Implementation(FLinearColor color, float frequency, float duration, FLinearColor resetColor)
+{
+}
