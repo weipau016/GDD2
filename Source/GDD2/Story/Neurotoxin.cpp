@@ -24,14 +24,14 @@ void Neurotoxin::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 	if (m_sequence_number == 1)
 	{
-		NextSequenceAfterWait(3);
+		NextSequenceAfterWait(2);
 	}
 	else
 	{
-		if (!m_fading && SecondsSinceSequenceFinished() > 6)
+		if (!m_fading && SecondsSinceSequenceFinished() > 3)
 		{
 			m_fading = true;
-			m_story_manager->getEffectManager()->ActivateFadeToBlack(3.0f);
+			m_story_manager->GetEffectManager()->ActivateFadeToBlack(6.0f);
 		}
 		if (m_fading && SecondsSinceSequenceFinished() > 10)
 		{
@@ -41,6 +41,7 @@ void Neurotoxin::Tick(float DeltaTime)
 }
 void Neurotoxin::OnSequenceFinished()
 {
+	Super::OnSequenceFinished();
 	if (m_sequence_number == 2)
 	{
 		End();
@@ -51,7 +52,6 @@ void Neurotoxin::End()
 {
 	if (m_ended) return;
 	m_ended = true;
-	m_story_manager->getEffectManager()->ActivateToxicGas(0.0f);
-	// TODO: activate green mist
+	m_story_manager->GetEffectManager()->ActivateToxicGas(0.0f);
 	// TODO: sound
 }

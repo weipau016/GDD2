@@ -129,7 +129,6 @@ void AStoryManager::Skip()
 		m_current_state->m_time_sequence_finished -= 100000;
 	}
 	PlaySound("button_press");
-	m_effect_manager->ActivateToxicGas(5.0f);
 }
 
 void AStoryManager::ToMenu()

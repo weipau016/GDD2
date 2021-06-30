@@ -62,7 +62,7 @@ private:
 
 public:
 	int m_karma_al;
-	AEffectManager* getEffectManager() { return m_effect_manager; }
+	AEffectManager* GetEffectManager() { return m_effect_manager; }
 
 	// Sets default values for this actor's properties
 	AStoryManager();
