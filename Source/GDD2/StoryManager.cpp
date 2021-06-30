@@ -5,6 +5,8 @@
 #include "ButtonManager.h"
 #include "EffectManager.h"
 
+#include "Kismet/GameplayStatics.h"
+
 #include "Story/BaseState.h"
 #include "Story/TheVeryStart.h"
 #include "Story/WelcomeAl.h"
@@ -127,4 +129,12 @@ void AStoryManager::Skip()
 		m_current_state->m_time_sequence_finished -= 100000;
 	}
 	PlaySound("button_press");
+	m_effect_manager->ActivateToxicGas(5.0f);
 }
+
+void AStoryManager::ToMenu()
+{
+	UE_LOG(LogTemp, Display, TEXT("Exit to menu!"));
+	UGameplayStatics::OpenLevel(this, "MainMenu", true);
+}
+

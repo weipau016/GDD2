@@ -7,12 +7,6 @@
 BackAgain::BackAgain(AStoryManager* story_manager, FString scene_name) : BaseState(story_manager, scene_name)
 {
 	m_last_sequence_number = 4;
-	float karma = m_story_manager->m_karma_al;
-	m_good = karma >= 20;
-	m_bad = karma < -30;
-	UE_LOG(LogTemp, Display, TEXT("Karma value: %f"), karma);
-	UE_LOG(LogTemp, Display, TEXT("Good: %b"), m_good);
-	UE_LOG(LogTemp, Display, TEXT("Bad:  %b"), m_bad);
 }
 
 BackAgain::~BackAgain()
@@ -23,6 +17,12 @@ void BackAgain::OnEnter()
 {
 	Super::OnEnter();
 	StartSequence(1);
+	float karma = m_story_manager->m_karma_al;
+	m_good = karma >= 20;
+	m_bad = karma < -30;
+	UE_LOG(LogTemp, Display, TEXT("Karma value: %f"), karma);
+	UE_LOG(LogTemp, Display, TEXT("Good: %b"), m_good);
+	UE_LOG(LogTemp, Display, TEXT("Bad:  %b"), m_bad);
 }
 void BackAgain::Tick(float DeltaTime)
 {

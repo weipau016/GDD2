@@ -31,11 +31,11 @@ void Neurotoxin::Tick(float DeltaTime)
 		if (!m_fading && SecondsSinceSequenceFinished() > 6)
 		{
 			m_fading = true;
-			m_story_manager->getEffectManager()->ActivateFadeToBlack();
+			m_story_manager->getEffectManager()->ActivateFadeToBlack(3.0f);
 		}
-		if (m_fading && SecondsSinceSequenceFinished() > 9)
+		if (m_fading && SecondsSinceSequenceFinished() > 10)
 		{
-			// TODO: go to menu
+			ToMainMenu();
 		}
 	}
 }

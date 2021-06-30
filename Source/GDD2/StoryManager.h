@@ -80,4 +80,6 @@ protected:
 
 	// change to last state in history
 	void ChangeToLastState();
+
+	void ToMenu();
 };

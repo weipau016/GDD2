@@ -32,6 +32,7 @@ void TooMuchPanel::Tick(float DeltaTime)
 void TooMuchPanel::OnButtonPressed(const FString& button_name)
 {
 	Super::OnButtonPressed(button_name);
+	m_story_manager->m_karma_al -= 10;
 	// TODO: switch to appropriate interrupt states
 }
 
