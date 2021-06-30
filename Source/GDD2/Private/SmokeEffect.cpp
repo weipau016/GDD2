@@ -12,6 +12,7 @@ ASmokeEffect::ASmokeEffect()
 
 void ASmokeEffect::BeginPlay()
 {
+	Super::BeginPlay();
 }
 
 void ASmokeEffect::Tick(float DeltaTime)
