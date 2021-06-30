@@ -61,6 +61,9 @@ private:
 	std::stack<std::string> m_history;
 
 public:
+	int m_karma_al;
+	AEffectManager* GetEffectManager() { return m_effect_manager; }
+
 	// Sets default values for this actor's properties
 	AStoryManager();
 
@@ -77,4 +80,6 @@ protected:
 
 	// change to last state in history
 	void ChangeToLastState();
+
+	void ToMenu();
 };

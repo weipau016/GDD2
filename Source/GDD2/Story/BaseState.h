@@ -53,6 +53,8 @@ protected:
 	// Will exit current state and change to last state instead
 	void Exit();
 
+	void ToMainMenu();
+
 	// helper
 	// (return true if sequence was changed/exit was called)
 	bool ExitAfterWait(const float second_to_wait); // call Exit()

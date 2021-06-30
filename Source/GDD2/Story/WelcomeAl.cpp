@@ -40,10 +40,12 @@ void WelcomeAl::OnButtonPressed(const FString& button_name)
 	Super::OnButtonPressed(button_name);
 	if (button_name == "yes")
 	{
+		m_story_manager->m_karma_al -= 10;
 		Exit("ai-prejudice-yes");
 	}
 	else if (button_name == "no")
 	{
+		m_story_manager->m_karma_al += 10;
 		Exit("ai-prejudice-no");
 	}
 }

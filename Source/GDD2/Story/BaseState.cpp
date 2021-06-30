@@ -94,6 +94,11 @@ void BaseState::Exit()
 	m_story_manager->ChangeToLastState();
 }
 
+void BaseState::ToMainMenu()
+{
+	m_story_manager->ToMenu();
+}
+
 // helper
 
 bool BaseState::ExitAfterWait(const float second_to_wait)

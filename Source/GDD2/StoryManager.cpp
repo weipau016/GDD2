@@ -5,6 +5,8 @@
 #include "ButtonManager.h"
 #include "EffectManager.h"
 
+#include "Kismet/GameplayStatics.h"
+
 #include "Story/BaseState.h"
 #include "Story/TheVeryStart.h"
 #include "Story/WelcomeAl.h"
@@ -26,6 +28,8 @@
 // Sets default values
 AStoryManager::AStoryManager()
 {
+	m_karma_al = 10;
+
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
@@ -126,3 +130,10 @@ void AStoryManager::Skip()
 	}
 	PlaySound("button_press");
 }
+
+void AStoryManager::ToMenu()
+{
+	UE_LOG(LogTemp, Display, TEXT("Exit to menu!"));
+	UGameplayStatics::OpenLevel(this, "MainMenu", true);
+}
+
