@@ -43,7 +43,12 @@ public:
 	void DeactivateToxicGas();
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	void ActivateFadeToBlack();
+	void ActivateFadeToBlack(float fadeDuration);
 
-	virtual void ActivateFadeToBlack_Implementation();
+	virtual void ActivateFadeToBlack_Implementation(float fadeDuration);
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void ActivateFadeToWhite(float fadeDuration);
+
+	virtual void ActivateFadeToWhite_Implementation(float fadeDuration);
 };

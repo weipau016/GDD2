@@ -64,6 +64,10 @@ void AEffectManager::DeactivateToxicGas()
 	}
 }
 
-void AEffectManager::ActivateFadeToBlack_Implementation()
+void AEffectManager::ActivateFadeToBlack_Implementation(float fadeDuration)
+{
+}
+
+void AEffectManager::ActivateFadeToWhite_Implementation(float fadeDuration)
 {
 }
