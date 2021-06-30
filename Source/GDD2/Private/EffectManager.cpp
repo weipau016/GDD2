@@ -13,6 +13,7 @@ AEffectManager::AEffectManager()
 
 void AEffectManager::BeginPlay()
 {
+	Super::BeginPlay();
 }
 
 void AEffectManager::Tick(float DeltaTime)
@@ -21,6 +22,7 @@ void AEffectManager::Tick(float DeltaTime)
 
 void AEffectManager::RegisterSmokeEffect(ASmokeEffect* smokeEffect)
 {
+	UE_LOG(LogTemp, Log, TEXT("Smoke effect has been registered"));
 	switch (smokeEffect->type)
 	{
 		case SmokeType::FREEZING:
