@@ -48,6 +48,7 @@ void TheVeryStart::Tick(float DeltaTime)
 		if (!m_startup_sound && SecondsSinceSequenceFinished() > 0) {
 			m_startup_sound = true;
 			PlaySound("decision_button_press_sound");
+			PlaySound("ambient");
 		}
 		break;
 	}
