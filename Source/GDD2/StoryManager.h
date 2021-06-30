@@ -61,7 +61,8 @@ private:
 	std::stack<std::string> m_history;
 
 public:
-	float m_karma_al;
+	int m_karma_al;
+	AEffectManager* getEffectManager() { return m_effect_manager; }
 
 	// Sets default values for this actor's properties
 	AStoryManager();

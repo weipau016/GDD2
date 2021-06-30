@@ -3,6 +3,7 @@
 
 #include "Neurotoxin.h"
 #include "../StoryManager.h"
+#include "EffectManager.h"
 
 Neurotoxin::Neurotoxin(AStoryManager* story_manager, FString scene_name) : BaseState(story_manager, scene_name)
 {
@@ -30,7 +31,7 @@ void Neurotoxin::Tick(float DeltaTime)
 		if (!m_fading && SecondsSinceSequenceFinished() > 6)
 		{
 			m_fading = true;
-			// TODO: activate fade to black
+			m_story_manager->getEffectManager()->ActivateFadeToBlack();
 		}
 		if (m_fading && SecondsSinceSequenceFinished() > 9)
 		{
@@ -50,6 +51,7 @@ void Neurotoxin::End()
 {
 	if (m_ended) return;
 	m_ended = true;
+	m_story_manager->getEffectManager()->ActivateToxicGas(0.0f);
 	// TODO: activate green mist
 	// TODO: sound
 }
