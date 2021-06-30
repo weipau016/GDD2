@@ -83,7 +83,7 @@ void ReactorRecalibration::OnButtonPressed(const FString& button_name)
 
 	for (int i = 0; i < 4; i++)
 	{
-		if (button_name.Compare(m_simon[i].c_str())) 
+		if (button_name.Compare(m_simon[i].c_str()) == 0) 
 		{
 			// simon button was pressed
 			ShowSimonDimAll();
@@ -96,15 +96,13 @@ void ReactorRecalibration::OnButtonPressed(const FString& button_name)
 			if (m_simon_order[m_simon_input] == i)
 			{
 				// correct input
-				if (m_simon_input < 3 + m_correct_attempts)
-				{
-					m_simon_input++;
-				}
-				else
+				m_simon_input++;
+				if (m_simon_input > 2 + m_correct_attempts)
 				{
 					// completed the whole round correctly
 					m_correct_attempts++;
 					m_simon_input = 0;
+					PlaySound("decision_button_press_sound");
 					if (m_correct_attempts > 2)
 					{
 						Exit("reactor-check");
@@ -115,6 +113,8 @@ void ReactorRecalibration::OnButtonPressed(const FString& button_name)
 			else
 			{
 				// mistake!
+				PlaySound("button_disappear");
+				m_wrong_attempts++;
 				StopSimonSays();
 				if (m_wrong_attempts > 2)
 				{
@@ -122,7 +122,6 @@ void ReactorRecalibration::OnButtonPressed(const FString& button_name)
 				}
 				else
 				{
-					m_wrong_attempts++;
 					StartSequence(9 + m_wrong_attempts);
 				}
 			}

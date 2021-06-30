@@ -17,4 +17,15 @@ public:
 
 private:
 	typedef BaseState Super;
+
+	float m_timer = 0.0f;
+	bool m_ended = false;
+
+protected:
+	virtual void OnEnter();
+	virtual void Tick(float DeltaTime);
+	virtual void OnButtonPressed(const FString& button_name);
+	virtual void OnSequenceFinished();
+
+	void End();
 };

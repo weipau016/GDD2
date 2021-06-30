@@ -17,4 +17,14 @@ public:
 
 private:
 	typedef BaseState Super;
+
+	bool m_ended = false;
+	bool m_fading = false;
+
+protected:
+	virtual void OnEnter();
+	virtual void Tick(float DeltaTime);
+	virtual void OnSequenceFinished();
+
+	void End();
 };
