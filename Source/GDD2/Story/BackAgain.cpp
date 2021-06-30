@@ -19,7 +19,7 @@ void BackAgain::OnEnter()
 	StartSequence(1);
 	float karma = m_story_manager->m_karma_al;
 	m_good = karma >= 20;
-	m_bad = karma < -30;
+	m_bad = karma <= 0; // TODO
 	UE_LOG(LogTemp, Display, TEXT("Karma value: %f"), karma);
 	UE_LOG(LogTemp, Display, TEXT("Good: %b"), m_good);
 	UE_LOG(LogTemp, Display, TEXT("Bad:  %b"), m_bad);
