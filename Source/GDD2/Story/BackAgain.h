@@ -17,4 +17,11 @@ public:
 
 private:
 	typedef BaseState Super;
+
+	bool m_good;
+	bool m_bad;
+
+protected:
+	virtual void OnEnter();
+	virtual void Tick(float DeltaTime);
 };

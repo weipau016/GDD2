@@ -61,6 +61,8 @@ private:
 	std::stack<std::string> m_history;
 
 public:
+	float m_karma_al;
+
 	// Sets default values for this actor's properties
 	AStoryManager();
 
