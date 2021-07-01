@@ -25,7 +25,7 @@ ReactorRecalibration::~ReactorRecalibration()
 void ReactorRecalibration::OnEnter()
 {
 	Super::OnEnter();
-	StartSequence(1);
+	StartSequence(m_last_non_error_sequence);
 	for (int i = 0; i < 4; i++)
 	{
 		SetButtonVisible(m_simon[i], true);
@@ -37,7 +37,6 @@ void ReactorRecalibration::OnExit()
 	Super::OnExit();
 	StopSimonSays();
 	m_story_manager->GetEffectManager()->SetLightColor(FLinearColor(1.0f, 1.0f, 1.0f));
-	// TODO: deactivate buttons
 }
 void ReactorRecalibration::Tick(float DeltaTime)
 {
@@ -50,9 +49,10 @@ void ReactorRecalibration::Tick(float DeltaTime)
 	switch (m_sequence_number)
 	{
 	case 1:
-		if (NextSequenceAfterWait(7))
+		if (NextSequenceAfterWait(6))
 		{
-			// TODO: deactivate and dim instruction button
+			SetButtonActive("instructions", false);
+			SetButtonLit("instructions", false);
 		}
 		break;
 	case 2:
@@ -81,7 +81,14 @@ void ReactorRecalibration::Tick(float DeltaTime)
 void ReactorRecalibration::OnButtonPressed(const FString& button_name)
 {
 	Super::OnButtonPressed(button_name);
-	// TODO: if (m_sequence_number == 1 && button_name == "name_of_instruction_button") exit to instruction sequence
+	if (m_sequence_number == 1 && button_name.Compare("instructions") == 0)
+	{
+		m_last_non_error_sequence = 2;
+		SetButtonActive("instructions", false);
+		SetButtonLit("instructions", false);
+		Exit("instructions-for-recalibration");
+		return;
+	}
 
 	for (int i = 0; i < 4; i++)
 	{
@@ -137,7 +144,8 @@ void ReactorRecalibration::OnSequenceFinished()
 	switch (m_sequence_number)
 	{
 	case 1:
-		// TODO: activate and light up instruction button
+		SetButtonActive("instructions", true);
+		SetButtonLit("instructions", true);
 		break;
 	case 2:
 		m_story_manager->GetEffectManager()->SetLightColor(FLinearColor(1.0f, 0.34f, 0.0f));

@@ -42,5 +42,6 @@ void FrozenAgain::End()
 	if (m_ended) return;
 	m_ended = true; 
 	m_story_manager->GetEffectManager()->ActivateFreezingGas(0.0f);
-	// TODO: play freezing sound
+	PlaySound("ice_release");
+	PlaySound("ice_spread");
 }

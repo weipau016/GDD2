@@ -27,7 +27,7 @@ private:
 	bool m_simon_show_any_lit = false;
 	int m_simon_show_index = 0;
 
-	int m_last_non_error_sequence = 0;
+	int m_last_non_error_sequence = 1;
 	float m_last_non_error_sequence_finished = 0.0f;
 
 	int m_simon_input = 0;

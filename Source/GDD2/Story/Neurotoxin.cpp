@@ -53,5 +53,5 @@ void Neurotoxin::End()
 	if (m_ended) return;
 	m_ended = true;
 	m_story_manager->GetEffectManager()->ActivateToxicGas(0.0f);
-	// TODO: sound
+	PlaySound("poison_release");
 }
