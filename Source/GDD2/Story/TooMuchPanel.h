@@ -18,10 +18,18 @@ public:
 private:
 	typedef BaseState Super;
 
+	int m_actual_sequence = 0;
+
 	bool m_buttons_deactivated = false;
+
+	int m_light = 0;
+	bool m_radio = false;
 
 protected:
 	virtual void OnEnter();
 	virtual void Tick(float DeltaTime);
 	virtual void OnButtonPressed(const FString& button_name);
+
+	void Activate(const std::string button_name);
+	void Deactivate(const std::string button_name);
 };

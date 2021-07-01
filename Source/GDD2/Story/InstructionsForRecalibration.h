@@ -17,4 +17,10 @@ public:
 
 private:
 	typedef BaseState Super;
+
+	bool m_already_visited = false;
+
+protected:
+	virtual void OnEnter();
+	virtual void Tick(float DeltaTime);
 };
