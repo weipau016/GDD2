@@ -1,6 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "TheVeryStart.h"
+#include "../StoryManager.h"
+#include "EffectManager.h"
 
 TheVeryStart::TheVeryStart(AStoryManager* story_manager, FString scene_name) : BaseState(story_manager, scene_name)
 {
@@ -15,8 +17,7 @@ void TheVeryStart::OnEnter()
 {
 	Super::OnEnter();
 	StartSequence(1);
-	// TODO: turn on light (should be dimmed at start)
-	// TODO: enable startup sounds and light effects
+	// do not change light here...not initialized yet. change in scene instead
 }
 
 void TheVeryStart::Tick(float DeltaTime)
@@ -27,6 +28,7 @@ void TheVeryStart::Tick(float DeltaTime)
 		
 		// wait 5 seconds (for effects to finish)
 		if (NextSequenceAfterWait(5)) {
+			m_story_manager->GetEffectManager()->SetLightIntensity(12.0f);
 			m_startup_sound = false;
 			break;
 		} 
@@ -35,6 +37,7 @@ void TheVeryStart::Tick(float DeltaTime)
 		if (!m_startup_sound && SecondsSinceSequenceFinished() > 1) {
 			m_startup_sound = true;
 			PlaySound("machine_startup");
+			m_story_manager->GetEffectManager()->SetLightIntensity(12.0f);
 		}
 		break;
 	case 2:

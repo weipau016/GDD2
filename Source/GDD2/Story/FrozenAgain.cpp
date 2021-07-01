@@ -21,12 +21,12 @@ void FrozenAgain::OnEnter()
 void FrozenAgain::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	if (!m_fading && SecondsSinceSequenceFinished() > 3)
+	if (!m_fading && SecondsSinceSequenceFinished() > 6)
 	{
 		m_fading = true;
 		m_story_manager->GetEffectManager()->ActivateFadeToWhite(6.0f);
 	}
-	if (m_fading && SecondsSinceSequenceFinished() > 10)
+	if (m_fading && SecondsSinceSequenceFinished() > 13)
 	{
 		ToMainMenu();
 	}

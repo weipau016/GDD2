@@ -131,6 +131,7 @@ void AStoryManager::Skip()
 	PlaySound("button_press");
 
 	//m_effect_manager->BlinkLight(FLinearColor(1.0f, 0.5f, 0.0f), 0.5f, 4.0f, FLinearColor(1.0f, 1.0f, 1.0f));
+	//m_effect_manager->SetLightColor(FLinearColor(1.0f, 0.64f, 0.0f));
 	//m_effect_manager->SetLightIntensity(0.0f);
 }
 

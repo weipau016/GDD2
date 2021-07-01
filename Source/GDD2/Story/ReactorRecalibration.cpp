@@ -3,6 +3,7 @@
 
 #include "ReactorRecalibration.h"
 #include "../StoryManager.h"
+#include "EffectManager.h"
 
 ReactorRecalibration::ReactorRecalibration(AStoryManager* story_manager, FString scene_name) : BaseState(story_manager, scene_name)
 {
@@ -35,7 +36,8 @@ void ReactorRecalibration::OnExit()
 {
 	Super::OnExit();
 	StopSimonSays();
-	// TODO: deactivate buttons and turn light normal again
+	m_story_manager->GetEffectManager()->SetLightColor(FLinearColor(1.0f, 1.0f, 1.0f));
+	// TODO: deactivate buttons
 }
 void ReactorRecalibration::Tick(float DeltaTime)
 {
@@ -138,7 +140,7 @@ void ReactorRecalibration::OnSequenceFinished()
 		// TODO: activate and light up instruction button
 		break;
 	case 2:
-		// TODO: turn light orange
+		m_story_manager->GetEffectManager()->SetLightColor(FLinearColor(1.0f, 0.34f, 0.0f));
 		break;
 	case 3:
 		NewSimonPattern();

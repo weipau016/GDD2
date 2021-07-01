@@ -22,6 +22,7 @@ void ReactorExplodes::OnEnter()
 {
 	Super::OnEnter();
 	StartSequence(1);
+	m_story_manager->GetEffectManager()->BlinkLight(FLinearColor(1.0f, 0.0f, 0.0f), 1.0f, 100.0f, FLinearColor(1.0f, 1.0f, 1.0f));
 }
 void ReactorExplodes::Tick(float DeltaTime)
 {
