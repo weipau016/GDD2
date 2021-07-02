@@ -21,5 +21,5 @@ void AiPrejudiceNo::OnEnter()
 void AiPrejudiceNo::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	NextSequenceOrExitOnLastAfterWait("starting-main-protocol", 2);
+	NextSequenceOrExitOnLastAfterWait("starting-main-protocol", 1);
 }

@@ -18,11 +18,9 @@ void BackAgain::OnEnter()
 	Super::OnEnter();
 	StartSequence(1);
 	float karma = m_story_manager->m_karma_al;
-	m_good = karma >= 20;
-	m_bad = karma <= 0; // TODO
+	m_good = karma >= 10;
+	m_bad = karma <= -40;
 	UE_LOG(LogTemp, Display, TEXT("Karma value: %f"), karma);
-	UE_LOG(LogTemp, Display, TEXT("Good: %b"), m_good);
-	UE_LOG(LogTemp, Display, TEXT("Bad:  %b"), m_bad);
 }
 void BackAgain::Tick(float DeltaTime)
 {

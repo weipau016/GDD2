@@ -56,7 +56,7 @@ void ReactorRecalibration::Tick(float DeltaTime)
 		}
 		break;
 	case 2:
-		NextSequenceAfterWait(3);
+		NextSequenceAfterWait(2);
 		break;
 	case 3:
 	case 4:

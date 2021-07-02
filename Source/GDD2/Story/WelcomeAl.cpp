@@ -32,7 +32,14 @@ void WelcomeAl::OnExit()
 void WelcomeAl::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	NextSequenceOrExitOnLastAfterWait("ai-prejudice-inaction", 5);
+	if (m_sequence_number == 1)
+	{
+		NextSequenceOrExitOnLastAfterWait("ai-prejudice-inaction", 2);
+	}
+	else
+	{
+		NextSequenceOrExitOnLastAfterWait("ai-prejudice-inaction", 5);
+	}
 }
 
 void WelcomeAl::OnButtonPressed(const FString& button_name)
